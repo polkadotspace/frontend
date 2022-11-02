@@ -1,0 +1,44 @@
+.app_search {
+  &-results_count {
+    color: $lightColor;
+  }
+  &-filter_list {
+    li {
+      margin: 0;
+      border-color: $mainColor;
+      position: relative;
+      &.active {
+        color: $mainColor;
+      }
+      &:last-child {
+        display: none;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        right: 0;
+        width: 1px;
+        height: 23px;
+        background-color: $mainColor;
+      }
+    }
+  }
+  &-input {
+    input {
+      border-color: $black;
+    }
+    span {
+      &:first-child {
+        color: $mainColor;
+      }
+      &:nth-of-type(2) {
+        color: $mainColor;
+        border-color: $black;
+      }
+      &:last-child {
+        color: #8b8585;
+      }
+    }
+  }
+}

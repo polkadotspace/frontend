@@ -1,0 +1,26 @@
+.app_search_result {
+  background-color: $white;
+  box-shadow: 0px 4px 11px rgba($mainColor, 0.5);
+  &-time {
+    color: $fontLightGrey;
+  }
+  &-link {
+    color: $mainColor;
+  }
+  &-social_icon {
+    color: $iconColor;
+  }
+  .bordered_icons {
+    li {
+      a {
+        color: $fontLightGrey;
+        border-color: $fontLightGrey;
+        transition: none;
+        &.clicked {
+          color: $mainColor;
+          border-color: $mainColor;
+        }
+      }
+    }
+  }
+}

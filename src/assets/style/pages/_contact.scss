@@ -1,0 +1,10 @@
+.app_contact {
+  &-icons {
+    li {
+      a {
+        color: $mainColor !important;
+        border-color: $mainColor !important;
+      }
+    }
+  }
+}
