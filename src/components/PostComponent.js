@@ -56,7 +56,7 @@ const SearchResult = () => {
   // The Main Component Structure
   const componentStructure = () => {
     return (
-      <div className="app_search_result mx-auto md:mx-0 flex px-6 justify-between rounded-[50px] relative z-[200] mt-[40px] md:mt-[90px] w-6/6 md:w-5/6">
+      <div className="app_search_result mx-auto md:mx-0 flex px-6 justify-between rounded-[20px] md:rounded-[50px] relative z-[200] mt-[40px] md:mt-[90px] w-6/6 md:w-5/6">
         <div className="mt-8 hidden md:block text-[30px] mr-6">{userIcon}</div>
         <div>
           <p className="app_search_result-time font-[300]">
