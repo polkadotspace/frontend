@@ -5,21 +5,21 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 
 const Main = ({ value, setValue, handleValue }) => {
-  const renderButtons = () => {
-    if (value) {
-      return (
-        <Link to="/pages/search" className="main_btn mt-8">
-          Search
-        </Link>
-      );
-    } else {
-      return (
-        <button className="main_btn mt-8 disabled:opacity-30" disabled>
-          Search
-        </button>
-      );
-    }
-  };
+  // const renderButtons = () => {
+  //   if (value) {
+  //     return (
+  //       <Link to="/pages/search" className="main_btn mt-8">
+  //         Search
+  //       </Link>
+  //     );
+  //   } else {
+  //     return (
+  //       <button className="main_btn mt-8 disabled:opacity-30" disabled>
+  //         Search
+  //       </button>
+  //     );
+  //   }
+  // };
 
   return (
     <div className="app_main pt-16 xl:pt-40">
@@ -34,15 +34,24 @@ const Main = ({ value, setValue, handleValue }) => {
             action="/pages/search"
           >
             <SearchBar
-              value={value}
-              setValue={setValue}
-              handleValue={handleValue}
+            // value={value}
+            // setValue={setValue}
+            // handleValue={handleValue}
             />
-            {renderButtons()}
+            <Link
+              to="/pages/search"
+              className="main_btn mt-8 text-[20px] md:text-[30px] px-[93px] md:px-[172px]"
+            >
+              Search
+            </Link>
           </form>
-          <div className="flex flex-col sm:flex-row justify-evenly">
-            <button className="btn mb-6 sm:mb-0">Polkadot Search</button>
-            <button className="btn">Feeling Lucky</button>
+          <div className="flex justify-evenly">
+            <button className="btn text-[15px] md:text-[30px] px-[32px] md:px-[57px]">
+              Polkadot Search
+            </button>
+            <button className="btn text-[15px] md:text-[30px] px-[32px] md:px-[50px]">
+              Feeling Lucky
+            </button>
           </div>
         </div>
       </div>

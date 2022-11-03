@@ -90,6 +90,13 @@
   color: #e6007a;
   border-color: #e6007a;
 }
+@media (max-width: 767px) {
+  .app_search_result .bordered_icons li a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+  }
+}
 
 .app_pagination * {
   border-color: #000;
@@ -133,30 +140,38 @@
 .app_forms-form button,
 .app_forms-form a {
   padding: 10px 80px;
-  font-size: 24px;
+  font-size: 30px;
   border-radius: 60px;
+  border: 2px solid #e6007a;
+}
+@media (max-width: 600px) {
+  .app_forms-form button,
+.app_forms-form a {
+    padding: 10px 42px;
+    font-size: 15px;
+  }
+}
+@media (min-width: 600px) and (max-width: 767px) {
+  .app_forms-form button,
+.app_forms-form a {
+    padding: 10px 42px;
+    font-size: 15px;
+  }
 }
 .app_forms-form a.btn {
   color: #000;
   border: 2px solid #000;
-  padding: 10px 60px;
 }
 .app_forms-form .form_eye {
   color: #e6007a;
 }
-@media (max-width: 600px) {
-  .app_forms ::-moz-placeholder {
-    font-size: 15px;
-  }
-  .app_forms :-ms-input-placeholder {
-    font-size: 15px;
-  }
-  .app_forms ::placeholder {
-    font-size: 15px;
-  }
+.app_forms .forgot_email a {
+  border: none;
+}
+@media (max-width: 767px) {
   .app_forms .forgot_email a {
     padding: 0;
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -229,13 +244,8 @@
   }
 }
 .app_profile .main_btn {
-  padding: 12px 170px;
-}
-@media (max-width: 500px) {
-  .app_profile .main_btn {
-    padding: 12px 70px;
-    font-size: 18px;
-  }
+  padding: 12px 86px !important;
+  font-size: 20px !important;
 }
 
 .app_favourites h1 span {
@@ -365,6 +375,13 @@ body {
   right: -300px;
   height: 500px;
   width: 500px;
+}
+@media (max-width: 767px) {
+  .app > span:nth-child(3) {
+    height: 100px;
+    width: 100px;
+    right: -50px;
+  }
 }
 
 .app_logo {

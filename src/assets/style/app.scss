@@ -96,6 +96,11 @@ body {
       right: -300px;
       height: 500px;
       width: 500px;
+      @media (max-width: "767px") {
+        height: 100px;
+        width: 100px;
+        right: -50px;
+      }
     }
   }
 }

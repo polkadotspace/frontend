@@ -56,27 +56,29 @@ const SearchResult = () => {
   // The Main Component Structure
   const componentStructure = () => {
     return (
-      <div className="app_search_result flex py-4 px-6 rounded-[50px] relative z-[200] mt-20 w-6/6 md:w-5/6">
-        <div className="mt-8 hidden lg:block">{userIcon}</div>
-        <div className="">
+      <div className="app_search_result mx-auto md:mx-0 flex px-6 justify-between rounded-[50px] relative z-[200] mt-[40px] md:mt-[90px] w-6/6 md:w-5/6">
+        <div className="mt-8 hidden md:block text-[30px] mr-6">{userIcon}</div>
+        <div>
           <p className="app_search_result-time font-[300]">
-            <span className="text-[1.13rem]">10.28.22 </span>
-            <span className="text-[1.13rem]">20:54pm</span>
+            <span className="text-[10px] md:text-[18px]">10.28.22 </span>
+            <span className="text-[10px] md:text-[18px]">20:54pm</span>
           </p>
-          <h1 className="text-[1.8rem] lg:text-[2.5rem] -mt-0 lg:-mt-4 flex items-center">
-            <div className="mr-4 block lg:hidden">{userIcon}</div>
-            <div>Bitcoin are going to $25.000</div>
+          <h1 className="-mt-0 lg:-mt-4 flex items-center">
+            <div className="mr-4 block md:hidden text-[13px]">{userIcon}</div>
+            <div className="text-[14px] md:text-[40px]">
+              Bitcoin are going to $25.000
+            </div>
           </h1>
           <h3 className="app_search_result-link -mt-4 lg:-mt-6">
-            <a className="text-[20px] font-[300]" href="/">
+            <a className="text-[10px] md:text-[20px] font-[300]" href="/">
               https://polkadot.network/.....
             </a>
           </h3>
-          <p className="text-[20px] lg:text-[25px] font-[400] w-2/3 -mt-2">
+          <p className="text-[10px] md:text-[25px] font-[400] w-2/3 -mt-2">
             Today bitcoin is will go up.We analyse the crypto volume market.....
           </p>
           <ul
-            className="bordered_icons flex col-span-2 text-center pt-6 pb-6 relative"
+            className="bordered_icons flex col-span-2 text-center pt-6 pb-6 relative text-[15px] md:text-[40px]"
             ref={favIconRef}
           >
             <li onClick={(e) => e.preventDefault()}>

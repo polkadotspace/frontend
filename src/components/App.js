@@ -32,7 +32,10 @@ const App = () => {
     setSearchValue(e.target.value);
   };
   return (
-    <main className="app relative h-screen overflow-xhidden">
+    <main className="app relative h-screen overflow-x-hidden">
+      <span></span>
+      <span></span>
+      <span></span>
       <div className="container flex flex-col m-auto">
         <div className="Navabr">
           <Navbar />

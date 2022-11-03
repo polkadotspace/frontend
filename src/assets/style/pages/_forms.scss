@@ -11,26 +11,33 @@
     button,
     a {
       padding: 10px 80px;
-      font-size: 24px;
+      font-size: 30px;
       border-radius: 60px;
+      border: 2px solid $mainColor;
+      @media (max-width: "600px") {
+        padding: 10px 42px;
+        font-size: 15px;
+      }
+
+      @media (min-width: "600px") and (max-width: "767px") {
+        padding: 10px 42px;
+        font-size: 15px;
+      }
     }
     a.btn {
       color: $black;
       border: 2px solid $black;
-      padding: 10px 60px;
     }
     .form_eye {
       color: $mainColor;
     }
   }
-  @media (max-width: "600px") {
-    ::placeholder {
-      font-size: 15px;
-    }
-    .forgot_email {
-      a {
+  .forgot_email {
+    a {
+      border: none;
+      @media (max-width: "767px") {
         padding: 0;
-        font-size: 16px;
+        font-size: 15px;
       }
     }
   }

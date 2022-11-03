@@ -6,7 +6,7 @@ import PostsPagination from "../components/PostsPagination";
 const Favourites = () => {
   return (
     <div className="app_favourites">
-      <h1 className="text-center text-[70px] font-[700]">
+      <h1 className="text-center text-[30px] md:text-[70px] font-[700]">
         Fa<span>vourites</span>
       </h1>
       <PostComponent />

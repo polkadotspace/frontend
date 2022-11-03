@@ -12,16 +12,17 @@ const microphoneIcon = <FontAwesomeIcon icon={faMicrophone} />;
 const SearchBar = ({ value, setValue, handleValue }) => {
   return (
     <div className="app_search-input w-full lg:w-2/3 relative overflow-hidden">
-      <span className="absolute left-[1.16px] rounded-[46px] top-[20%] cursor-pointer bg-white px-6">
+      <span className="absolute left-[50px] md:left-[100px] top-[10px] md:top-[16px] cursor-pointe text-[17px] md:text-[27px]">
         {searchIcon}
       </span>
       <input
         type="text"
-        className="w-full border-2 rounded-[46px] h-[4.5rem] indent-[60px] lg:indent-[90px]"
-        value={value}
-        onInput={handleValue}
+        className="w-10/12 border-2 rounded-[46px] h-[47px] md:h-[4.5rem] indent-[60px] lg:indent-[90px]"
+        // value={value}
+        // onInput={handleValue}
       />
-      <span
+
+      {/* <span
         className={`absolute right-24 top-0 font-[200] -mr-6 pr-[1.8rem] border-r-2 py-5 ${
           value && value.length > 0 ? "block" : "hidden"
         }`}
@@ -32,8 +33,8 @@ const SearchBar = ({ value, setValue, handleValue }) => {
           alt="Delete Search Text"
           onClick={() => setValue("")}
         />
-      </span>
-      <span className="absolute rounded-r-[46px] right-[1.3px] top-[20%] px-6 cursor-pointer bg-white">
+      </span> */}
+      <span className="absolute right-[50px] md:right-[100px] top-[10px] md:top-[16px] cursor-pointer text-[17px] md:text-[23px]">
         {microphoneIcon}
       </span>
     </div>

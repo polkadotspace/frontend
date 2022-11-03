@@ -4,13 +4,17 @@ module.exports = {
   theme: {
     extend: {
       container: {
+        screens: {
+          DEFAULT: "414px",
+          sm: "500px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1728px",
+          "2xl": "1496px",
+        },
         center: true,
         padding: {
-          DEFAULT: "2rem",
-          sm: "2rem",
-          lg: "4rem",
-          xl: "5rem",
-          "2xl": "4rem",
+          DEFAULT: "9px",
         },
       },
     },
