@@ -7,4 +7,10 @@
       }
     }
   }
+  @media (max-width: "500px") {
+    .submit_ticket-btn {
+      padding: 8px 50px;
+      font-size: 16px;
+    }
+  }
 }

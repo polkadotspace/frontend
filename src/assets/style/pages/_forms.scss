@@ -23,4 +23,15 @@
       color: $mainColor;
     }
   }
+  @media (max-width: "600px") {
+    ::placeholder {
+      font-size: 15px;
+    }
+    .forgot_email {
+      a {
+        padding: 0;
+        font-size: 16px;
+      }
+    }
+  }
 }

@@ -106,6 +106,20 @@
   color: #e6007a;
 }
 
+.app_likes {
+  box-shadow: 0px 4px 11px rgba(230, 0, 122, 0.5);
+  background-color: #fff;
+}
+.app_likes-box {
+  box-shadow: 0px 4px 11px rgba(230, 0, 122, 0.5);
+}
+.app_likes-box h3 span {
+  color: #858585;
+}
+.app_likes-box div {
+  color: #e6007a;
+}
+
 .app_forms {
   box-shadow: 0px 0px 10px rgba(230, 0, 122, 0.6);
 }
@@ -129,6 +143,21 @@
 }
 .app_forms-form .form_eye {
   color: #e6007a;
+}
+@media (max-width: 600px) {
+  .app_forms ::-moz-placeholder {
+    font-size: 15px;
+  }
+  .app_forms :-ms-input-placeholder {
+    font-size: 15px;
+  }
+  .app_forms ::placeholder {
+    font-size: 15px;
+  }
+  .app_forms .forgot_email a {
+    padding: 0;
+    font-size: 16px;
+  }
 }
 
 .app_search-results_count {
@@ -182,14 +211,31 @@
   color: #000;
 }
 .app_profile-verify_btn button {
-  padding: 12px 60px;
+  padding: 12px 50px;
   font-size: 20px;
   color: #000;
   border-color: #000;
   box-shadow: 0px 0px 20px rgba(230, 0, 122, 0.4);
 }
+@media (max-width: 1300px) {
+  .app_profile-verify_btn button {
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 500px) {
+  .app_profile-verify_btn button {
+    padding: 12px 20px;
+    font-size: 17px;
+  }
+}
 .app_profile .main_btn {
   padding: 12px 170px;
+}
+@media (max-width: 500px) {
+  .app_profile .main_btn {
+    padding: 12px 70px;
+    font-size: 18px;
+  }
 }
 
 .app_favourites h1 span {
@@ -199,6 +245,51 @@
 .app_contact-icons li a {
   color: #e6007a !important;
   border-color: #e6007a !important;
+}
+@media (max-width: 500px) {
+  .app_contact .submit_ticket-btn {
+    padding: 8px 50px;
+    font-size: 16px;
+  }
+}
+
+.app_rpc-wrapper {
+  box-shadow: 0px 0px 15px #e6007a;
+}
+
+.admin_users-panel {
+  background-color: #fff;
+  box-shadow: 0px 0px 15px #e6007a;
+}
+.admin_users-panel .current {
+  color: #e6007a;
+}
+
+.admin_users-wrapper {
+  background-color: #fff;
+  box-shadow: 0px 0px 15px #e6007a;
+}
+.admin_users-wrapper_box {
+  position: relative;
+}
+.admin_users-wrapper_box:first-child {
+  margin-top: 0;
+}
+.admin_users-wrapper_box:after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 10%;
+  width: 80%;
+  height: 0.5px;
+  background-color: #e6007a;
+}
+.admin_users-wrapper_box.admin_websites-box .bordered_icons li a {
+  color: #e6007a;
+  border-color: #e6007a;
+}
+.admin_users-wrapper_box.admin_websites-box:first-child li {
+  font-size: 3rem;
 }
 
 * {
@@ -225,6 +316,11 @@ body {
   background-color: transparent;
   color: #e6007a;
 }
+@media (max-width: 767px) {
+  .main_btn {
+    padding: 8px 100px;
+  }
+}
 
 .btn {
   border-radius: 48px;
@@ -241,6 +337,11 @@ body {
 .btn:focus {
   background-color: transparent;
   color: #e6007a;
+}
+@media (max-width: 767px) {
+  .btn {
+    padding: 8px 20px;
+  }
 }
 
 .app > span {

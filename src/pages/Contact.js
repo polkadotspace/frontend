@@ -10,7 +10,7 @@ const atSignIcon = <FontAwesomeIcon icon={faAt} size="lg" />;
 const Contact = () => {
   return (
     <div className="app_contact">
-      <div className="app_forms w-8/12 m-auto py-16 px-20 rounded-[30px]">
+      <div className="app_forms w-12/12 lg:w-9/12 xl:w-8/12 sm:mx-auto mt-20 py-16 px-10 md:px-20 rounded-[30px]">
         <div className="text-center">
           <h2 className="text-[40px] font-[600]">Contact Us</h2>
           <form className="app_forms-form mt-6">
@@ -29,7 +29,9 @@ const Contact = () => {
               placeholder="Ticket"
             ></textarea>
             <div className="flex justify-between items-center">
-              <button className="main_btn mt-8 m-auto">Submit Ticket</button>
+              <button className="submit_ticket-btn main_btn mt-8 m-auto">
+                Submit Ticket
+              </button>
             </div>
           </form>
         </div>

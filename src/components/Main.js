@@ -22,10 +22,10 @@ const Main = ({ value, setValue, handleValue }) => {
   };
 
   return (
-    <div className="app_main pt-40">
+    <div className="app_main pt-16 xl:pt-40">
       <div className="container grid grid-rows-12 m-auto">
         <div className="items-center text-center">
-          <h1 className="text-[70px] font-[700]">
+          <h1 className="text-[28px] md:text-[70px] font-[700]">
             The multichain vision for <br />
             <span>Web3 </span>starts here
           </h1>
@@ -40,8 +40,8 @@ const Main = ({ value, setValue, handleValue }) => {
             />
             {renderButtons()}
           </form>
-          <div className="flex justify-evenly">
-            <button className="btn">Polkadot Search</button>
+          <div className="flex flex-col sm:flex-row justify-evenly">
+            <button className="btn mb-6 sm:mb-0">Polkadot Search</button>
             <button className="btn">Feeling Lucky</button>
           </div>
         </div>

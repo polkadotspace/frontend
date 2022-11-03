@@ -10,6 +10,7 @@
 @import "./components/main";
 @import "./components/postComponent";
 @import "./components/postsPagination";
+@import "./components/likes";
 
 // Pages
 @import "./pages/forms";
@@ -17,6 +18,11 @@
 @import "./pages/profile";
 @import "./pages/favourites";
 @import "./pages/contact";
+@import "./pages/rpc";
+
+// Admin
+@import "./admin/adminPanel";
+@import "./admin/users";
 
 // Global Rulez
 * {
@@ -43,6 +49,9 @@ body {
     background-color: transparent;
     color: $mainColor;
   }
+  @media (max-width: "767px") {
+    padding: 8px 100px;
+  }
 }
 
 .btn {
@@ -59,6 +68,9 @@ body {
   &:focus {
     background-color: transparent;
     color: $mainColor;
+  }
+  @media (max-width: "767px") {
+    padding: 8px 20px;
   }
 }
 

@@ -8,7 +8,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 
 export default function PostsPagination() {
-  const articlesCount = ["10", "20", "30", "40", "50"];
+  const articlesCount = [10, 20, 30, 40, 50];
   const [openList, setOpenList] = React.useState(false);
   const [selectedCount, setSelectedCount] = React.useState(articlesCount[0]);
   const listIconRef = React.useRef(null);

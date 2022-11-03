@@ -1,0 +1,32 @@
+.admin_users {
+  &-wrapper {
+    background-color: $white;
+    box-shadow: 0px 0px 15px $mainColor;
+    &_box {
+      position: relative;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: 10%;
+        width: 80%;
+        height: 0.5px;
+        background-color: $mainColor;
+      }
+      &.admin_websites-box {
+        .bordered_icons li a {
+          color: $mainColor;
+          border-color: $mainColor;
+        }
+        &:first-child {
+          li {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

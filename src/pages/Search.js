@@ -48,18 +48,16 @@ const Search = ({ value, setValue, handleValue }) => {
         </span>
       </form>
       <ul
-        className="app_search-filter_list flex text-[25px]"
+        className="app_search-filter_list flex flex-wrap text-[25px]"
         ref={filterListRef}
       >
         {renderFilterList()}
       </ul>
-      <div className="max-w-[75rem]">
-        <PostComponent />
-        <PostComponent />
-        <PostComponent />
-        <PostComponent />
-        <PostComponent />
-      </div>
+      <PostComponent />
+      <PostComponent />
+      <PostComponent />
+      <PostComponent />
+      <PostComponent />
       <div>
         <PostsPagination />
       </div>

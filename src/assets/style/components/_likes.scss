@@ -1,0 +1,15 @@
+.app_likes {
+  box-shadow: 0px 4px 11px rgba($mainColor, 0.5);
+  background-color: $white;
+  &-box {
+    box-shadow: 0px 4px 11px rgba($mainColor, 0.5);
+    h3 {
+      span {
+        color: $lightColor;
+      }
+    }
+    div {
+      color: $mainColor;
+    }
+  }
+}

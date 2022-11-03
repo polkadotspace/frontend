@@ -11,9 +11,11 @@ const eyeSlashIcon = <FontAwesomeIcon icon={faEyeSlash} size="xs" />;
 const Login = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
   return (
-    <div className="app_forms w-7/12 m-auto py-16 px-20 rounded-[30px]">
+    <div className="app_forms w-12/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 sm:mx-auto mt-20 py-16 px-10 md:px-20 rounded-[30px]">
       <div className="text-center">
-        <h2 className="text-[40px] font-[600]">Login to your Account</h2>
+        <h2 className="text-[32px] sm:text-[40px] font-[600]">
+          Login to your Account
+        </h2>
         <form className="app_forms-form mt-6">
           <input
             type="text"
@@ -33,14 +35,16 @@ const Login = () => {
               {visiblePassword ? eyeIcon : eyeSlashIcon}
             </span>
           </div>
-          <div className="flex justify-between items-center">
-            <button className="main_btn mt-8">Login</button>
-            <Link to="/pages/register" className="btn mt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <button className="main_btn mt-8 w-full sm:mr-2">Login</button>
+            <Link to="/pages/register" className="btn mt-8 sm:ml-2 w-full">
               Register
             </Link>
           </div>
-          <p className="mt-4 text-[20px] font-[400]">
-            <Link to="/pages/reset">Forgot Your Password?</Link>
+          <p className="forgot_email mt-4 md:text-[20px] font-[400]">
+            <Link to="/pages/reset" className="text-[10px] p-0">
+              Forgot Your Password?
+            </Link>
           </p>
         </form>
       </div>

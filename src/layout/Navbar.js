@@ -35,14 +35,14 @@ const Navbar = () => {
   const barsRefIcon = useRef(null);
 
   return (
-    <div className="app_navbar py-8 text flex justify-between">
-      <div className="app_navabr-logo w-3/12 text-[1.88rem]">
+    <div className="app_navbar py-8 flex flex-col md:flex-row justify-between items-center">
+      <div className="app_navbar-logo text-center lg:text-left w-12/12 sm:w-5/12 lg:w-6/12 text-[1.88rem]">
         <Link to="/" className="app_logo">
           Polkadot <span>Space</span>
         </Link>
       </div>
-      <div className="app_navbar-items flex justify-center items-center text-center w-3/12">
-        <div className="app_navbar-items_language cursor-pointer relative pr-6 w-1/6 font-[200]">
+      <div className="app_navbar-items flex justify-between items-center w-12/12 sm:w-6/12 lg:w-4/12">
+        <div className="app_navbar-items_language cursor-pointer relative font-[200]">
           <div
             className="app_navbar-items_language-icon w-full flex justify-between py-2"
             onClick={() => setOpenLanguages(!openLanguages)}
@@ -74,16 +74,16 @@ const Navbar = () => {
             login
           </Link>
         </div> */}
-        <div className="app_navbar-items_favourites cursor-pointer text-[42px] w-2/6">
+        <div className="app_navbar-items_favourites cursor-pointer text-[42px] text-center ml-6 md:ml-0">
           <Link to="/pages/favourites">
             {heartIcon} <span>2</span>
           </Link>
         </div>
-        <div className="app_navbar-items_profile cursor-pointer text-[42px] w-1/6">
+        <div className="app_navbar-items_profile cursor-pointer text-[42px] mx-6 md:mx-0">
           <Link to="/pages/profile">{userIcon}</Link>
         </div>
         <div
-          className="app_navbar-items_bars cursor-pointer w-1/6 text-right"
+          className="app_navbar-items_bars cursor-pointer text-right"
           onClick={() => setOpenNavbar(!openNavbar)}
           ref={barsRefIcon}
         >
