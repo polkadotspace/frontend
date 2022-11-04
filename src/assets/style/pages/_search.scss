@@ -1,14 +1,39 @@
 .app_search {
+  form {
+    span {
+      &:first-of-type {
+        left: 20px;
+      }
+      &:last-of-type {
+        right: 80px;
+        @media (min-width: "500px") {
+          right: 100px;
+        }
+        @media (min-width: "768px") {
+          right: 150px;
+        }
+      }
+    }
+  }
   &-results_count {
     color: $lightColor;
   }
   &-filter_list {
+    border-color: $fontLightGrey;
     li {
       margin: 0;
       border-color: $mainColor;
       position: relative;
+      &:first-child {
+        padding-left: 2rem;
+      }
       &.active {
         color: $mainColor;
+        @media (max-width: "767px") {
+          &:after {
+            display: block;
+          }
+        }
       }
       &:last-child {
         display: none;
@@ -19,8 +44,15 @@
         top: 8px;
         right: 0;
         width: 1px;
-        height: 23px;
+        height: 19px;
         background-color: $mainColor;
+        @media (max-width: "767px") {
+          width: 100%;
+          height: 1px;
+          right: 0;
+          top: 18px;
+          display: none;
+        }
       }
     }
   }

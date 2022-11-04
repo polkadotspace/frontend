@@ -24,7 +24,7 @@ const Search = ({ value, setValue, handleValue }) => {
       return (
         <React.Fragment key={i}>
           <li
-            className={`cursor-pointer px-10 ${
+            className={`cursor-pointer md:px-10 ${
               filterText === "All" ? "active" : ""
             }`}
             onClick={(e) => addActiveClass(e)}
@@ -43,12 +43,12 @@ const Search = ({ value, setValue, handleValue }) => {
           setValue={setValue}
           handleValue={handleValue}
         />
-        <span className="app_search-results_count text-[1.25rem] ml-10 mt-2 font-[300]">
+        <span className="app_search-results_count text-[10px] md:text-[20px] ml-[30px] mt-[10px] font-[300]">
           about 5000 results
         </span>
       </form>
       <ul
-        className="app_search-filter_list flex flex-wrap text-[25px]"
+        className="app_search-filter_list flex justify-between items-start w-[320px] text-[12px] md:text-[25px] font-[500] pr-[79px] border-b-[1px] md:border-0"
         ref={filterListRef}
       >
         {renderFilterList()}

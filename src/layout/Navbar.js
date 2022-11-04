@@ -54,7 +54,7 @@ const Navbar = () => {
             </span>
           </div>
           <ul
-            className={`px-2 absolute -left-1 w-20 rounded ${
+            className={`px-2 absolute -left-1 w-12 md:w-20 text-[12px] md:text-[30px] rounded z-[24244] ${
               openLanguages ? "top-100" : "-top-64"
             }`}
           >
