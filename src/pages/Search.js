@@ -43,7 +43,7 @@ const Search = ({ value, setValue, handleValue }) => {
           setValue={setValue}
           handleValue={handleValue}
         />
-        <span className="app_search-results_count text-[10px] md:text-[20px] ml-[30px] mt-[10px] font-[300]">
+        <span className="app_search-results_count text-[10px] md:text-[20px] md:ml-[30px] mt-[10px] font-[300]">
           about 5000 results
         </span>
       </form>

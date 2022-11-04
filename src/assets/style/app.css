@@ -221,8 +221,10 @@
   border-color: #e6007a;
   position: relative;
 }
-.app_search-filter_list li:first-child {
-  padding-left: 2rem;
+@media (min-width: 767px) {
+  .app_search-filter_list li:first-child {
+    padding-left: 2rem;
+  }
 }
 .app_search-filter_list li.active {
   color: #e6007a;

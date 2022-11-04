@@ -24,8 +24,10 @@
       margin: 0;
       border-color: $mainColor;
       position: relative;
-      &:first-child {
-        padding-left: 2rem;
+      @media (min-width: "767px") {
+        &:first-child {
+          padding-left: 2rem;
+        }
       }
       &.active {
         color: $mainColor;
