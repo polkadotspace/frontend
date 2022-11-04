@@ -131,6 +131,11 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
   background-color: #fff;
 }
+@media (min-width: 768px) {
+  .app_likes-box {
+    filter: drop-shadow(0px 0px 15px rgba(230, 0, 122, 0.45));
+  }
+}
 .app_likes-box img {
   border-color: #e6007a;
 }
