@@ -57,3 +57,10 @@ const App = () => {
 };
 
 export default App;
+
+// TODO:
+/*
+ * Admin Webistes : plus button + pop up (same login page) + edit icon (same login page) + pagination
+ * Requests (sidebar): name of websites + link + submit
+ * Fake Authentication
+ */

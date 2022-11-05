@@ -11,7 +11,7 @@ const eyeSlashIcon = <FontAwesomeIcon icon={faEyeSlash} size="xs" />;
 const Login = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
   return (
-    <div className="app_forms w-12/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 lg:mx-auto mt-20 px-10 md:px-20 rounded-[30px] bg-white">
+    <div className="app_forms w-12/12 lg:w-9/12 xl:w-8/12 2xl:w-7/12 lg:mx-auto mt-20 px-10 md:px-20 rounded-[30px] bg-white">
       <div className="text-center">
         <h2 className="text-[20px] md:text-[40px] font-[600] mt-[41px] mb-[49px] md:mt-[76px]">
           Login to your Account
@@ -35,14 +35,14 @@ const Login = () => {
               {visiblePassword ? eyeIcon : eyeSlashIcon}
             </span>
           </div>
-          <div className="flex justify-between items-center mt-[25px] md:mt-[35px]">
+          <div className="form_btns flex justify-between items-center mt-[25px] md:mt-[35px]">
             <button className="main_btn w-full mr-[5px]">Login</button>
             <Link to="/pages/register" className="btn w-full ml-[5px]">
               Register
             </Link>
           </div>
           <p className="forgot_email md:text-[20px] font-[400] mt-[25px] md:mb-[100px] mb-[56px]">
-            <Link to="/pages/reset" className="text-[10px]">
+            <Link to="/pages/reset" className="text-[10px] md:text-[20px]">
               Forgot Your Password?
             </Link>
           </p>

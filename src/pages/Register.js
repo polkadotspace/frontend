@@ -13,7 +13,7 @@ const Register = () => {
   const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
 
   return (
-    <div className="app_forms w-12/12 lg:w-9/12 xl:w-7/12 2xl:w-6/12 lg:mx-auto mt-[76px] px-10 md:px-20 rounded-[30px] bg-white">
+    <div className="app_forms w-12/12 lg:w-9/12 xl:w-8/12 2xl:w-7/12 lg:mx-auto mt-[76px] px-10 md:px-20 rounded-[30px] bg-white">
       <div className="text-center">
         <h2 className="text-[20px] md:text-[40px] font-[600] mt-[32px] mb-[50px]">
           Register Your Account
@@ -60,7 +60,7 @@ const Register = () => {
               {visibleConfirmPassword ? eyeIcon : eyeSlashIcon}
             </span>
           </div>
-          <div className="flex justify-between items-center mt-[43px] mb-[38px] md:mb-[150px]">
+          <div className="form_btns flex justify-between items-center mt-[43px] mb-[38px] md:mb-[150px]">
             <button className="main_btn w-full mr-[5px]">Register</button>
             <Link className="btn w-full ml-[5px]" to="/pages/login">
               Login

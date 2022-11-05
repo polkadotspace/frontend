@@ -45,7 +45,7 @@ const Profile = () => {
                 className="w-full border-2 rounded-[46px] py-4 indent-6 hidden md:block"
                 placeholder="User Email"
               />
-              <button className="mt-[38px] hidden md:block m-auto">
+              <button className="mt-[38px] hidden md:block m-auto rounded-[33px]">
                 Verify your email
               </button>
             </div>

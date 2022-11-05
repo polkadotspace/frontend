@@ -41,7 +41,7 @@ const Navbar = () => {
           Polkadot <span>Space</span>
         </Link>
       </div>
-      <div className="app_navbar-items flex justify-between items-center w-7/12 sm:w-6/12 lg:w-4/12">
+      <div className="app_navbar-items flex justify-between items-center w-5/12 sm:w-5/12 lg:w-4/12 xl:w-3/12">
         <div className="app_navbar-items_language cursor-pointer relative font-[200] w-2/8">
           <div
             className="app_navbar-items_language-icon flex justify-between"
@@ -71,10 +71,10 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        <div className="app_navbar-items_login w-2/8 flex justify-center">
+        <div className="app_navbar-items_login flex justify-center">
           <Link
             to="/pages/login"
-            className="btn py-1 text-[12px] md:text-[18px]"
+            className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px]"
           >
             login
           </Link>
@@ -84,13 +84,13 @@ const Navbar = () => {
             {heartIcon} <span>2</span>
           </Link>
         </div> */}
-        <div className="app_navbar-items_profile w-2/8 cursor-pointer">
+        <div className="app_navbar-items_profile cursor-pointer">
           <Link to="/pages/profile" className="text-[25px] md:text-[40px]">
             {userIcon}
           </Link>
         </div>
         <div
-          className="app_navbar-items_bars cursor-pointer text-right w-2/8"
+          className="app_navbar-items_bars cursor-pointer text-right"
           onClick={() => setOpenNavbar(!openNavbar)}
           ref={barsRefIcon}
         >

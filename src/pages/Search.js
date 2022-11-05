@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import PostComponent from "../components/PostComponent";
 import SearchBar from "../components/SearchBar";
 import PostsPagination from "../components/PostsPagination";
+import Filter from "../components/Filter";
 
 const Search = ({ value, setValue, handleValue }) => {
+  const [filterText, setFilterText] = useState("All");
+  // Adding Active Class Link To The Filter
   const filterList = ["All", "Image", "Videos", "Articles", ""];
   const filterListRef = useRef(null);
 
@@ -13,11 +16,14 @@ const Search = ({ value, setValue, handleValue }) => {
     filterListChildren.forEach((child) => {
       if (!child.classList.contains("active")) {
         e.target.classList.add("active");
+        setFilterText(e.target.textContent);
       } else {
         child.classList.remove("active");
       }
     });
   };
+
+  console.log(filterText);
 
   const renderFilterList = () => {
     return filterList.map((filterText, i) => {
@@ -53,11 +59,12 @@ const Search = ({ value, setValue, handleValue }) => {
       >
         {renderFilterList()}
       </ul>
-      <PostComponent />
-      <PostComponent />
-      <PostComponent />
-      <PostComponent />
-      <PostComponent />
+      <div>
+        <Filter />
+      </div>
+      <div>
+        <PostComponent filterText={filterText} />
+      </div>
       <div>
         <PostsPagination />
       </div>

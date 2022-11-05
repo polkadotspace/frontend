@@ -46,10 +46,10 @@ const Main = ({ value, setValue, handleValue }) => {
             </Link>
           </form>
           <div className="flex justify-evenly">
-            <button className="btn text-[15px] md:text-[30px] px-[32px] md:px-[57px]">
+            <button className="btn text-[12px] md:text-[20px] px-[32px] md:px-[57px]">
               Polkadot Search
             </button>
-            <button className="btn text-[15px] md:text-[30px] px-[32px] md:px-[50px]">
+            <button className="btn text-[12px] md:text-[20px] px-[32px] md:px-[50px]">
               Feeling Lucky
             </button>
           </div>

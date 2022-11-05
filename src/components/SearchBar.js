@@ -20,34 +20,41 @@ const SearchBar = () => {
   const renderDeleteSearch = () => {
     if (window.location.href.includes("search")) {
       return (
-        <span
-          className={`absolute right-[25%] top-[5px] md:top-0 font-[200]${
-            searchValue && searchValue.length > 0 ? "block" : "hidden"
-          }`}
-        >
+        <>
           <img
-            className="w-8 md:w-12 cursor-pointer h-[45px] md:h-[72px] border-r-2 pr-[15px] border-black"
+            className={`${
+              searchValue && searchValue.length > 0 ? "block" : "hidden"
+            } absolute right-[26%] top-[23%] md:top-[27%] w-[13px] md:w-[32px] cursor-pointer h-[32px] md:h-[32px] border-black`}
             src={deleteMark}
             alt="Delete Search Text"
             onClick={() => setSearchValue("")}
           />
-        </span>
+          <span
+            className={`${
+              searchValue && searchValue.length > 0 ? "inline-block" : "hidden"
+            } h-[47px] top-[5px] md:top-0 md:h-[72px] w-[1px] absolute right-[24%] bg-black`}
+          ></span>
+        </>
       );
     }
   };
 
   return (
-    <div className="app_search-input w-full relative overflow-hidden">
+    <div
+      className={`app_search-input ${
+        window.location.href.includes("search") ? "w-5/6" : "w-full"
+      } relative overflow-hidden`}
+    >
       <span
         className={`absolute ${
-          !window.location.href.includes("search") ? "left-[12%]" : "left-[20%]"
+          window.location.href.includes("search") ? "left-[2%]" : "left-[11%]"
         } top-[15px] md:top-[16px] cursor-pointe text-[17px] md:text-[27px]`}
       >
         {searchIcon}
       </span>
       <input
         type="text"
-        className="w-10/12 border-2 rounded-[46px] h-[47px] md:h-[4.5rem] indent-[60px] lg:indent-[90px] text-[15px] md:text-[30px]"
+        className="w-10/12 border-2 rounded-[46px] h-[47px] md:h-[4.5rem] indent-[60px] lg:indent-[80px] text-[15px] md:text-[30px]"
         value={searchValue}
         onChange={handleOnInputValue}
       />
@@ -55,10 +62,10 @@ const SearchBar = () => {
       {renderDeleteSearch()}
       <span
         className={`absolute ${
-          !window.location.href.includes("search")
-            ? "right-[12%]"
-            : "right-[20%]"
-        } top-[15px] md:top-[16px] cursor-pointer text-[17px] md:text-[23px]`}
+          window.location.href.includes("search")
+            ? "right-[20%]"
+            : "right-[11%]"
+        } top-[15px] md:top-[16px] cursor-pointer text-[16px] md:text-[23px]`}
       >
         {microphoneIcon}
       </span>

@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
-  const links = ["Home", "Dashboard", "About", "RPC", "Contact"];
+  const links = ["Home", "Dashboard", "Favourites", "RPC", "Contact"];
   const sideBarRef = useRef(null);
 
   // Create Reusable Function For Closing Navabrs Floaitng Containers
