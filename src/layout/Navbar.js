@@ -41,7 +41,7 @@ const Navbar = () => {
           Polkadot <span>Space</span>
         </Link>
       </div>
-      <div className="app_navbar-items flex justify-between items-center w-7/12 sm:w-6/12 lg:w-4/12 xl:w-3/12">
+      <div className="app_navbar-items flex justify-between items-center w-7/12 sm:w-6/12 lg:w-4/12">
         <div className="app_navbar-items_language cursor-pointer relative font-[200] w-2/8">
           <div
             className="app_navbar-items_language-icon flex justify-between"

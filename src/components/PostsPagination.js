@@ -15,7 +15,7 @@ export default function PostsPagination() {
 
   const applyArticlesOnClick = (e) => {
     if (listIconRef.current) {
-      setSelectedCount(e.target.textContent);
+      setSelectedCount(e.target.textContent.slice(0, 2));
       setOpenList(false);
     }
   };
@@ -35,11 +35,11 @@ export default function PostsPagination() {
           ref={listIconRef}
         >
           <span>{arrowDownIcon}</span>
-          <span className="ml-2">{selectedCount}</span>
+          <span className="mx-2">{selectedCount}</span>
           <span>Articles</span>
         </div>
         <ul
-          className={`px-1 absolute left-0 w-full rounded text-[12px] md:text-[20px] ${
+          className={`absolute -left-2 w-full text-[12px] md:text-[20px] border-2 rounded-[7px] mt-2 px-8 ${
             openList ? "block" : "hidden"
           }`}
         >
@@ -50,7 +50,7 @@ export default function PostsPagination() {
                 onClick={(e) => applyArticlesOnClick(e)}
                 key={i}
               >
-                {count}
+                {count} Articles
               </li>
             );
           })}

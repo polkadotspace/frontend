@@ -37,7 +37,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="app_search-input w-full lg:w-2/3 relative overflow-hidden">
+    <div className="app_search-input w-full relative overflow-hidden">
       <span
         className={`absolute ${
           !window.location.href.includes("search") ? "left-[12%]" : "left-[20%]"
