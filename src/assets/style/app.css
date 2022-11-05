@@ -197,19 +197,6 @@
 .app_search form span:first-of-type {
   left: 20px;
 }
-.app_search form span:last-of-type {
-  right: 80px;
-}
-@media (min-width: 500px) {
-  .app_search form span:last-of-type {
-    right: 100px;
-  }
-}
-@media (min-width: 768px) {
-  .app_search form span:last-of-type {
-    right: 150px;
-  }
-}
 .app_search-results_count {
   color: #858585;
 }
@@ -303,6 +290,12 @@
 .app_profile .main_btn {
   padding: 12px 86px !important;
   font-size: 20px !important;
+}
+@media (min-width: 768px) {
+  .app_profile .main_btn {
+    padding: 12px 161px !important;
+    font-size: 30px !important;
+  }
 }
 
 .app_favourites h1 span {

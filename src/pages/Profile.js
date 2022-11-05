@@ -55,9 +55,7 @@ const Profile = () => {
             className="w-full border-2 rounded-[46px] py-4 indent-6 mb-[51px]"
             placeholder="Connect your wallet"
           />
-          <button className="main_btn mt-0 w-full px-[86px] text-[20px] md:text-[30px]">
-            Submit
-          </button>
+          <button className="main_btn mt-0">Submit</button>
         </form>
       </div>
     </div>

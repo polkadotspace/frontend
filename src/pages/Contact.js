@@ -10,7 +10,7 @@ const atSignIcon = <FontAwesomeIcon icon={faAt} size="lg" />;
 const Contact = () => {
   return (
     <div className="app_contact">
-      <div className="app_forms w-12/12 lg:w-9/12 xl:w-8/12 sm:mx-auto mt-20 py-16 px-10 md:px-20 rounded-[30px]">
+      <div className="app_forms w-12/12 lg:w-9/12 xl:w-8/12 sm:mx-auto mt-20 py-16 px-10 md:px-20 rounded-[30px] bg-white">
         <div className="text-center">
           <h2 className="text-[40px] font-[600]">Contact Us</h2>
           <form className="app_forms-form mt-6">
@@ -37,7 +37,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="text-center mt-10">
-        <h2 className="text-[60px] font-[500]">Our Social Media</h2>
+        <h2 className="md:text-[60px] font-[500]">Our Social Media</h2>
         <ul className="app_contact-icons bordered_icons flex justify-center">
           {[discordIcon, atSignIcon].map((icon, i) => (
             <li key={i}>

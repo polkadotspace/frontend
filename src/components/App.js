@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -26,11 +26,6 @@ import Favourites from "../pages/Favourites";
 import RPC from "../pages/RPC";
 
 const App = () => {
-  const [searchValue, setSearchValue] = useState("");
-
-  const handleOnInputValue = (e) => {
-    setSearchValue(e.target.value);
-  };
   return (
     <main className="app relative h-screen overflow-x-hidden">
       <span></span>
@@ -41,27 +36,8 @@ const App = () => {
           <Navbar />
         </div>
         <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <Main
-                value={searchValue}
-                setValue={setSearchValue}
-                handleValue={handleOnInputValue}
-              />
-            }
-          />
-          <Route
-            path="/pages/search"
-            element={
-              <Search
-                value={searchValue}
-                setValue={setSearchValue}
-                handleValue={handleOnInputValue}
-              />
-            }
-          />
+          <Route path="/" exact element={<Main />} />
+          <Route path="/pages/search" element={<Search />} />
           <Route path="/pages/login" element={<Login />} />
           <Route path="/pages/register" element={<Register />} />
           <Route path="/pages/profile" element={<Profile />} />
