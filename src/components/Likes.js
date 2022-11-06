@@ -10,7 +10,7 @@ const heartIcon = <FontAwesomeIcon icon={faHeart} size="1x" />;
 const Likes = ({ likesRef, showLikes }) => {
   return (
     <div
-      className={`app_likes rounded-[50px] py-3 md:py-6 px-3 md:px-10 absolute md:w-[800px] -bottom-8 md:left-[13rem] ${
+      className={`app_likes rounded-[50px] py-3 md:py-6 px-3 md:px-10 absolute md:w-[800px] -bottom-8 md:left-[13rem] z-[44] ${
         showLikes ? "block" : "hidden"
       }`}
       ref={likesRef}
