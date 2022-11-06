@@ -23,8 +23,6 @@ const Search = ({ value, setValue, handleValue }) => {
     });
   };
 
-  console.log(filterText);
-
   const renderFilterList = () => {
     return filterList.map((filterText, i) => {
       return (

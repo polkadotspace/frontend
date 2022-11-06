@@ -19,7 +19,7 @@ const Filter = () => {
   ];
 
   return (
-    <div className="app_filter rounded-[7px] w-3/6 bg-white p-[25px]">
+    <div className="app_filter rounded-[7px] w-5/6 md:w-3/6 bg-white p-[25px]">
       <div className="app_filter-menu">
         <div className="text-[10px] md:text-[20px]">
           <span className="font-[600] mr-[7px]">Data:</span>
@@ -31,7 +31,7 @@ const Filter = () => {
           </span>
         </div>
         <ul
-          className={`bg-white absolute left-[200px] w-[65px] md:w-[200px] z-[121214] border-[0.5px] rounded-[10px] px-[11px] py-[8px] border-black ${
+          className={`bg-white absolute left-[80px] md:left-[200px] w-[65px] md:w-[200px] z-[121214] border-[0.5px] rounded-[10px] px-[11px] py-[8px] border-black ${
             openMenu ? "block" : "hidden"
           }`}
         >
@@ -47,7 +47,7 @@ const Filter = () => {
           })}
         </ul>
       </div>
-      <div className="app_filter-checks text-[10px] md:text-[20px] font-[300] flex">
+      <div className="app_filter-checks text-[10px] md:text-[20px] font-[300] flex mt-[29px]">
         <div className="w-1/2">
           {[
             "Btc",
@@ -61,7 +61,6 @@ const Filter = () => {
               <div key={i} className="flex mt-[14px] items-center">
                 <input type="checkbox" className="mr-[5px]" />
                 <label>{check}</label>
-                <span></span>
               </div>
             );
           })}
@@ -70,13 +69,11 @@ const Filter = () => {
           <div className="flex mt-[14px] items-center">
             <input type="checkbox" className="mr-[5px]" />
             <label>en</label>
-            <span></span>
           </div>
 
           <div className="flex mt-[14px] items-center">
             <input type="checkbox" className="mr-[5px]" />
             <label>ar</label>
-            <span></span>
           </div>
         </div>
       </div>

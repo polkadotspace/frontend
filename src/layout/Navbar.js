@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 
 import { Link } from "react-router-dom";
 
+import logo from "../assets/images/logo.png";
 import Sidebar from "./Sidebar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +18,7 @@ const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 const barsIcon = <FontAwesomeIcon icon={faBars} />;
 const heartIcon = <FontAwesomeIcon icon={faHeart} />;
 
-const Navbar = () => {
+const Navbar = ({ isLogged }) => {
   const languageList = ["en", "fr"];
   const [openLanguages, setOpenLanguages] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(languageList[0]);
@@ -38,7 +39,7 @@ const Navbar = () => {
     <div className="app_navbar py-8 flex justify-between items-center">
       <div className="app_navbar-logo w-5/12 sm:w-5/12 lg:w-6/12 text-[15px] md:text-[1.88rem]">
         <Link to="/" className="app_logo">
-          Polkadot <span>Space</span>
+          <img src={logo} alt="Logo" className="w-1/3" />
         </Link>
       </div>
       <div className="app_navbar-items flex justify-between items-center w-5/12 sm:w-5/12 lg:w-4/12 xl:w-3/12">
@@ -71,19 +72,24 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        <div className="app_navbar-items_login flex justify-center">
-          <Link
-            to="/pages/login"
-            className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px]"
-          >
-            login
-          </Link>
-        </div>
-        {/* <div className="app_navbar-items_favourites cursor-pointer text-[42px] text-center ml-6 md:ml-0">
-          <Link to="/pages/favourites">
-            {heartIcon} <span>2</span>
-          </Link>
-        </div> */}
+
+        {window.sessionStorage.getItem("isLogged") ? (
+          <div className="app_navbar-items_favourites cursor-pointer text-[42px] text-center ml-6 md:ml-0">
+            <Link to="/pages/favourites">
+              {heartIcon} <span>2</span>
+            </Link>
+          </div>
+        ) : (
+          <div className="app_navbar-items_login flex justify-center">
+            <Link
+              to="/pages/login"
+              className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px]"
+            >
+              login
+            </Link>
+          </div>
+        )}
+
         <div className="app_navbar-items_profile cursor-pointer">
           <Link to="/pages/profile" className="text-[25px] md:text-[40px]">
             {userIcon}

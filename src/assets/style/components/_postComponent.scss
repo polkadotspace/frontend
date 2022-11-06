@@ -9,6 +9,22 @@
   }
   &-social_icon {
     color: $iconColor;
+    li {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  &-likes {
+    position: relative;
+    img {
+      border-color: $mainColor;
+    }
+    span {
+      border-color: $mainColor;
+      position: absolute;
+      background-color: $white;
+    }
   }
   .bordered_icons {
     li {

@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import logo from "../assets/images/logo.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -21,7 +23,7 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row justify-center sm:justify-start">
         <div className="app_footer-logo w-12/12 lg:w-3/12 text-center mb-6 md:mb-0">
           <Link to="/" className="app_logo">
-            Polkadot <span>Space</span>
+            <img src={logo} alt="Logo" className="w-2/3 mx-auto md:mr-auto" />
           </Link>
         </div>
         <div className="flex flex-col sm:flex-row justify-around text-center w-12/12 lg:w-5/12">

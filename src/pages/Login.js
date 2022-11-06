@@ -36,7 +36,14 @@ const Login = () => {
             </span>
           </div>
           <div className="form_btns flex justify-between items-center mt-[25px] md:mt-[35px]">
-            <button className="main_btn w-full mr-[5px]">Login</button>
+            <button
+              className="main_btn w-full mr-[5px]"
+              onClick={() => {
+                window.sessionStorage.setItem("isLogged", true);
+              }}
+            >
+              Login
+            </button>
             <Link to="/pages/register" className="btn w-full ml-[5px]">
               Register
             </Link>
