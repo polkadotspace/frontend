@@ -15,7 +15,6 @@ const plusIcon = <FontAwesomeIcon icon={faPlus} />;
 
 const Websites = () => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  // const [edit, setEdit] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [urlValue, setURLValue] = useState("");
   const [websites, setWebsites] = useState([
@@ -26,26 +25,22 @@ const Websites = () => {
       name: "Twitter",
       url: "https://www.twitter.com",
     },
+    {
+      id: 2,
+      icon: twitterIcon,
+      name: "Twitter",
+      url: "https://www.twitter.com",
+    },
   ]);
-  // const [updatedWebsites, setUpdatedWebsites] = useState({});
   const addWebsite = () => {
     setWebsites((webs) => [
       ...webs,
       { icon: googleIcon, name: nameValue, url: urlValue },
     ]);
     setVisiblePopup(false);
-    // setEdit(false);
     setNameValue("");
     setURLValue("");
   };
-
-  // const updateWebsite = () => {
-  //   setUpdatedWebsites({ name: nameValue, url: urlValue });
-  //   setVisiblePopup(false);
-  //   setEdit(false);
-  //   setNameValue("");
-  //   setURLValue("");
-  // };
 
   return (
     <div className="admin_websites">
@@ -85,7 +80,6 @@ const Websites = () => {
                     className="w-1-6 cursor-pointer"
                     onClick={(e) => {
                       setVisiblePopup(true);
-                      // setEdit(true);
                     }}
                   >
                     {editIcon}
@@ -99,7 +93,6 @@ const Websites = () => {
               className="admin_websites-popup_plus main_btn py-1 px-[70px] text-[23px]"
               onClick={() => {
                 setVisiblePopup(true);
-                // setEdit(false);
               }}
             >
               {plusIcon}
@@ -116,16 +109,16 @@ const Websites = () => {
                 nameValue={nameValue}
                 urlValue={urlValue}
                 addWebsite={addWebsite}
-                // edit={edit}
-                // setEdit={setEdit}
-                // updateWebsite={updateWebsite}
-                // updatedWebsites={updatedWebsites}
               />
             </div>
           </div>
-          <div className="rows-span-1 -mt-[12.5rem]">
-            <PostsPagination />
-          </div>
+          {websites.length > 10 ? (
+            <div className="rows-span-1 -mt-[12.5rem]">
+              <PostsPagination />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

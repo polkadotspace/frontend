@@ -1,9 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import Requests from "../components/Requests";
+
 const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
-  const links = ["Home", "Dashboard", "Favourites", "RPC", "Contact"];
+  // Requests Pop up
+  const [openRequest, setOpenRequest] = useState(false);
+  const [nameValue, setNameValue] = useState("");
+  const [urlValue, setURLValue] = useState("");
+
+  // Sidebar Links State
+  const links = ["Home", "Favourites", "RPC", "Contact"];
   const sideBarRef = useRef(null);
 
   // Create Reusable Function For Closing Navabrs Floaitng Containers
@@ -55,6 +63,14 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
       <ul className="sidebar_list w-52 mt-20">{renderLinks()}</ul>
       <ul className="app_sidebar-auth mt-16 text-[20px] text-center">
         <li className="mb-6">
+          <button
+            className="btn block m-auto border-black text-black rounded"
+            onClick={() => setOpenRequest(true)}
+          >
+            Requests
+          </button>
+        </li>
+        <li className="mb-6">
           <Link to="/pages/login" className="btn block">
             Login
           </Link>
@@ -65,6 +81,20 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
           </Link>
         </li>
       </ul>
+      <div
+        className={`absolute top-10 left-[120%] ${
+          openRequest ? "block" : "hidden"
+        }`}
+      >
+        <Requests
+          openRequest={openRequest}
+          setOpenRequest={setOpenRequest}
+          setNameValue={setNameValue}
+          setURLValue={setURLValue}
+          nameValue={nameValue}
+          urlValue={urlValue}
+        />
+      </div>
     </div>
   );
 };

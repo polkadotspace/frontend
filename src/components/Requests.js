@@ -1,24 +1,24 @@
 import React from "react";
 
-const Popup = ({
-  setVisiblePopup,
+const Requests = ({
+  openRequest,
+  setOpenRequest,
   setNameValue,
   setURLValue,
   nameValue,
   urlValue,
-  addWebsite,
 }) => {
   return (
-    <div className="admin_popup rounded-[30px] px-10 py-14 w-full">
+    <div className="app_requests bg-white rounded-[30px] w-[800px] p-6 text-black">
       <div
-        className="absolute right-8 top-8 border-2 border-black w-[40px] cursor-pointer"
+        className="absolute right-8 top-8 border-2 border-black w-[40px] cursor-pointer text-black text-center"
         onClick={() => {
-          setVisiblePopup(false);
+          setOpenRequest(false);
         }}
       >
         X
       </div>
-      <h2 className="text-[40px] font-[700]">Add Website</h2>
+      <h2 className="text-[40px] font-[700] text-center">Make a request</h2>
       <form>
         <input
           type="text"
@@ -38,13 +38,7 @@ const Popup = ({
           value={urlValue}
           onChange={(e) => setURLValue(e.target.value)}
         />
-        <button
-          className="main_btn px-[50px] text-[30px]"
-          onClick={(e) => {
-            e.preventDefault();
-            addWebsite();
-          }}
-        >
+        <button className="main_btn px-[50px] text-[30px] block mx-auto">
           Submit
         </button>
       </form>
@@ -52,4 +46,4 @@ const Popup = ({
   );
 };
 
-export default Popup;
+export default Requests;
