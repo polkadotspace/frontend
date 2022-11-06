@@ -87,8 +87,6 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
         }`}
       >
         <Requests
-          openRequest={openRequest}
-          setOpenRequest={setOpenRequest}
           setNameValue={setNameValue}
           setURLValue={setURLValue}
           nameValue={nameValue}

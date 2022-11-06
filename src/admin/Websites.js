@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import AdminPanel from "./AdminPanel";
 import Popup from "./Popup";
@@ -44,13 +44,13 @@ const Websites = () => {
 
   return (
     <div className="admin_websites">
-      <h1 className="text-[70px] font-[700] text-center mb-10">Websites</h1>
+      <h1 className="text-[70px] font-[700] text-center mb-[43px]">Websites</h1>
       <div className="flex flex-col md:flex-row">
         <div className="md:w-3/12">
           <AdminPanel />
         </div>
         <div className="admin_users-wrapper h-[1050px] md:w-9/12 md:ml-6 p-6 rounded-[50px] grid grid-rows-6">
-          <div className="overflow-y-scroll row-span-4">
+          <div className="row-span-4">
             {websites.map((box, i) => {
               return (
                 <div
