@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -6,6 +6,7 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 const userIcon = <FontAwesomeIcon icon={faUserCircle} size="2x" />;
 
 const Profile = () => {
+  const [verified, setVerified] = useState(false);
   return (
     <div className="app_profile app_forms w-12/12 lg:w-10/12 xl:w-9/12 sm:mx-auto mt-20 pt-[20px] md:pt-[75px] pb-[25px] md:pb-[55px] px-10 md:px-20 rounded-[30px] bg-white">
       <div className="text-center">
@@ -45,16 +46,31 @@ const Profile = () => {
                 className="w-full border-2 rounded-[46px] py-4 indent-6 hidden md:block"
                 placeholder="User Email"
               />
-              <button className="mt-[38px] hidden md:block m-auto rounded-[33px]">
-                Verify your email
-              </button>
+              {verified ? (
+                <button className="mt-[38px] hidden md:block m-auto rounded-[33px]">
+                  Verify your email
+                </button>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <input
             type="text"
-            className="w-full border-2 rounded-[46px] py-4 indent-6 mb-[51px]"
-            placeholder="Connect your wallet"
+            className={`w-full border-2 rounded-[46px] py-4 indent-6  ${
+              verified ? "connected" : ""
+            }`}
+            placeholder={`${
+              verified
+                ? "W7Wh&weyu&ysduftudsfuW7Wh&weyu&ysduftudsfu"
+                : "Connect your wallet"
+            }`}
           />
+          <label
+            className={`font-[300] mr-[111px] mt-[18px] mb-[51px] block text-[15px] md:text-[25px] text-left ml-8`}
+          >
+            Change Wallet
+          </label>
           <button className="main_btn mt-0">Submit</button>
         </form>
       </div>

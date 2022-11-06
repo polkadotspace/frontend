@@ -22,6 +22,12 @@
       }
     }
   }
+
+  .connected {
+    &::placeholder {
+      color: #7c7c7c;
+    }
+  }
   .main_btn {
     padding: 12px 86px !important;
     font-size: 20px !important;

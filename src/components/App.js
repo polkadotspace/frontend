@@ -14,6 +14,7 @@ import Search from "../pages/Search";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Profile from "../pages/Profile";
+import AccountChange from "../pages/AccountChange";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/pages/login" element={<Login />} />
           <Route path="/pages/register" element={<Register />} />
           <Route path="/pages/profile" element={<Profile />} />
+          <Route path="/pages/accountchange" element={<AccountChange />} />
           <Route path="/pages/favourites" element={<Favourites />} />
           <Route path="/pages/rpc" element={<RPC />} />
           <Route path="/pages/contact" element={<Contact />} />
@@ -60,7 +62,7 @@ export default App;
 
 // TODO:
 /*
- * Admin Webistes : plus button + pop up (same login page) + edit icon (same login page) + pagination
- * Requests (sidebar): name of websites + link + submit
+ * Admin Webistes : plus button + pop up (same login page) + edit icon (same login page) + pagination ✅
+ * Requests (sidebar): name of websites + link + submit ✅
  * Fake Authentication ✅
  */
