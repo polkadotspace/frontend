@@ -1,8 +1,23 @@
 import React from "react";
 
-const Requests = ({ setNameValue, setURLValue, nameValue, urlValue }) => {
+const Requests = ({
+  openRequest,
+  setOpenRequest,
+  setNameValue,
+  setURLValue,
+  nameValue,
+  urlValue,
+}) => {
   return (
     <div className="app_requests bg-white rounded-[30px] w-[800px] p-6 text-black">
+      <div
+        className="absolute right-8 top-8 w-[40px] cursor-pointer text-black text-center"
+        onClick={() => {
+          setOpenRequest(false);
+        }}
+      >
+        X
+      </div>
       <h2 className="text-[40px] font-[700] text-center">Make a request</h2>
       <form>
         <input

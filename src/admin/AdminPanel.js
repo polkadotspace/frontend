@@ -19,26 +19,24 @@ const AdminPanel = () => {
   });
 
   return (
-    <div className="admin_users-panel rounded-[50px] py-10 px-10 h-[1050px] mb-10">
-      <h2 className="text-[25px] lg:text-[35px] font-[700] text-center">
-        Admin Panel
-      </h2>
+    <div className="admin_users-panel rounded-[50px] py-[50px] px-[35px] h-[1050px] mb-10 mr-[49px]">
+      <h2 className="text-[31px] font-[700] text-center">Admin Panel</h2>
       <ul
-        className="admin_users-list md:mt-[55px] text-center flex items-center justify-evenly flex-row md:flex-col"
+        className="admin_users-list md:mt-[55px] flex items-left justify-evenly flex-row md:flex-col"
         ref={adminLinksRef}
       >
         <li>
-          <Link to="/admin/users" className="text-[20px] md:text-[25px]">
+          <Link to="/admin/users" className="text-[30px]">
             Users
           </Link>
         </li>
         <li className="my-[35px]">
-          <Link to="/admin/websites" className="text-[20px] md:text-[25px]">
+          <Link to="/admin/websites" className="text-[30px]">
             Websites
           </Link>
         </li>
         <li>
-          <Link to="/admin/states" className="text-[20px] md:text-[25px]">
+          <Link to="/admin/states" className="text-[30px]">
             States
           </Link>
         </li>
@@ -46,7 +44,7 @@ const AdminPanel = () => {
       <div className="md:mt-[59px] text-center">
         <Link
           to="/"
-          className="main_btn px-10 md:px-1 text-[18px] md:text-[12px] lg:text-[16px]"
+          className="main_btn px-[19px] text-[18px] md:text-[12px] lg:text-[16px]"
         >
           Back to the website
         </Link>

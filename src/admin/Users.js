@@ -9,11 +9,11 @@ const Users = () => {
   return (
     <div className="admin_users">
       <h1 className="text-[70px] font-[700] text-center mb-10">Users</h1>
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-3/12">
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="w-[332px]">
           <AdminPanel />
         </div>
-        <div className="admin_users-wrapper md:w-9/12 md:ml-6 p-6 rounded-[50px]">
+        <div className="admin_users-wrapper h-[1050px] w-[974px] p-6 rounded-[50px]">
           {[
             {
               img: person,
@@ -68,7 +68,7 @@ const Users = () => {
               </div>
             );
           })}
-          <div className="-mt-32">
+          <div className="-mt-40">
             <PostsPagination />
           </div>
         </div>
