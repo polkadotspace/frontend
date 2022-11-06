@@ -1,16 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import AdminPanel from "./AdminPanel";
+import Popup from "./Popup";
 import PostsPagination from "../components/PostsPagination";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const googleIcon = <FontAwesomeIcon icon={faGoogle} />;
 const twitterIcon = <FontAwesomeIcon icon={faTwitter} />;
 const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
+const plusIcon = <FontAwesomeIcon icon={faPlus} />;
 
 const Websites = () => {
+  const [visiblePopup, setVisiblePopup] = useState(false);
+  // const [edit, setEdit] = useState(false);
+  const [nameValue, setNameValue] = useState("");
+  const [urlValue, setURLValue] = useState("");
+  const [websites, setWebsites] = useState([
+    { id: 1, icon: googleIcon, name: "Google", url: "https://www.google.com" },
+    {
+      id: 2,
+      icon: twitterIcon,
+      name: "Twitter",
+      url: "https://www.twitter.com",
+    },
+  ]);
+  // const [updatedWebsites, setUpdatedWebsites] = useState({});
+  const addWebsite = () => {
+    setWebsites((webs) => [
+      ...webs,
+      { icon: googleIcon, name: nameValue, url: urlValue },
+    ]);
+    setVisiblePopup(false);
+    // setEdit(false);
+    setNameValue("");
+    setURLValue("");
+  };
+
+  // const updateWebsite = () => {
+  //   setUpdatedWebsites({ name: nameValue, url: urlValue });
+  //   setVisiblePopup(false);
+  //   setEdit(false);
+  //   setNameValue("");
+  //   setURLValue("");
+  // };
+
   return (
     <div className="admin_websites">
       <h1 className="text-[70px] font-[700] text-center mb-10">Websites</h1>
@@ -18,20 +54,9 @@ const Websites = () => {
         <div className="md:w-3/12">
           <AdminPanel />
         </div>
-        <div className="admin_users-wrapper md:w-9/12 md:ml-6 p-6 rounded-[50px] flex flex-col justify-between">
-          <div>
-            {[
-              {
-                icon: googleIcon,
-                name: "Google",
-                url: "https://google.com",
-              },
-              {
-                icon: twitterIcon,
-                name: "Twitter",
-                url: "htths://twitter.com",
-              },
-            ].map((box, i) => {
+        <div className="admin_users-wrapper h-[1050px] md:w-9/12 md:ml-6 p-6 rounded-[50px] grid grid-rows-6">
+          <div className="overflow-y-scroll row-span-4">
+            {websites.map((box, i) => {
               return (
                 <div
                   className="admin_users-wrapper_box admin_websites-box flex justify-center mt-[80px]"
@@ -44,24 +69,61 @@ const Websites = () => {
                       </a>
                     </li>
                   </ul>
-                  <div className="w-4/6 flex flex-col lg:flex-row">
-                    <div className="w-2/6">
-                      <h3 className="text-[20px] lg:text-[25px] xl:text-[30px]">
+                  <div className="w-5/6 flex">
+                    <div className="w-1/6">
+                      <h3 className="admin_wesbites-box_name text-[30px]">
                         {box.name}
                       </h3>
                     </div>
-                    <div className="w-4/6">
-                      <h3 className="text-[20px] lg:text-[25px] xl:text-[30px]">
+                    <div className="w-5/6">
+                      <h3 className="text-[30px] text-center">
                         <a href={box.url}>{box.url}</a>
                       </h3>
                     </div>
                   </div>
-                  <div className="w-1-6">{editIcon}</div>
+                  <div
+                    className="w-1-6 cursor-pointer"
+                    onClick={(e) => {
+                      setVisiblePopup(true);
+                      // setEdit(true);
+                    }}
+                  >
+                    {editIcon}
+                  </div>
                 </div>
               );
             })}
           </div>
-          <div className="-mt-32">
+          <div className="admin_websites-popup text-center relative mt-6 rows-span-1 flex justify-center items-end">
+            <button
+              className="admin_websites-popup_plus main_btn py-1 px-[70px] text-[23px]"
+              onClick={() => {
+                setVisiblePopup(true);
+                // setEdit(false);
+              }}
+            >
+              {plusIcon}
+            </button>
+            <div
+              className={`admin_websites-popup_box absolute bottom-[50%] bg-white ${
+                visiblePopup ? "block" : "hidden"
+              }`}
+            >
+              <Popup
+                setVisiblePopup={setVisiblePopup}
+                setNameValue={setNameValue}
+                setURLValue={setURLValue}
+                nameValue={nameValue}
+                urlValue={urlValue}
+                addWebsite={addWebsite}
+                // edit={edit}
+                // setEdit={setEdit}
+                // updateWebsite={updateWebsite}
+                // updatedWebsites={updatedWebsites}
+              />
+            </div>
+          </div>
+          <div className="rows-span-1 -mt-[12.5rem]">
             <PostsPagination />
           </div>
         </div>

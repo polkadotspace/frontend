@@ -19,7 +19,7 @@ const AdminPanel = () => {
   });
 
   return (
-    <div className="admin_users-panel rounded-[50px] py-10 px-2 xl:px-10 md:h-[1050px] mb-10">
+    <div className="admin_users-panel rounded-[50px] py-10 px-10 h-[1050px] mb-10">
       <h2 className="text-[25px] lg:text-[35px] font-[700] text-center">
         Admin Panel
       </h2>
