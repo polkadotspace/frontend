@@ -19,10 +19,10 @@ const AdminPanel = () => {
   });
 
   return (
-    <div className="admin_users-panel rounded-[50px] py-[50px] px-[35px] h-[1050px] mb-10 mr-[49px]">
+    <div className="admin_users-panel rounded-[50px] h-[1050px] mb-10 px-[15px] py-[50px] mr-[49px]">
       <h2 className="text-[31px] font-[700] text-center">Admin Panel</h2>
       <ul
-        className="admin_users-list md:mt-[55px] flex items-left justify-evenly flex-row md:flex-col"
+        className="admin_users-list md:mt-[55px] flex items-left justify-evenly flex-row md:flex-col px-[35px] "
         ref={adminLinksRef}
       >
         <li>
@@ -42,10 +42,7 @@ const AdminPanel = () => {
         </li>
       </ul>
       <div className="md:mt-[59px] text-center">
-        <Link
-          to="/"
-          className="main_btn px-[19px] text-[18px] md:text-[12px] lg:text-[16px]"
-        >
+        <Link to="/" className="main_btn px-[19px] text-[16px]">
           Back to the website
         </Link>
       </div>

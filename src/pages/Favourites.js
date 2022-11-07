@@ -54,7 +54,7 @@ const Favourites = () => {
         <PostComponent filterText={filterText} />
       </div>
       <div>
-        <PostsPagination />
+        <PostsPagination pages="Articles" />
       </div>
     </div>
   );

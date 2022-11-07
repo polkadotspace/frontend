@@ -7,12 +7,16 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 
-export default function PostsPagination() {
-  const articlesCount = [10, 20, 30, 40, 50];
+export default function PostsPagination({
+  pages,
+  websites,
+  pageNum,
+  setPageNum,
+}) {
+  const articlesCount = [5, 10, 15];
   const [openList, setOpenList] = React.useState(false);
   const [selectedCount, setSelectedCount] = React.useState(articlesCount[0]);
   const listIconRef = React.useRef(null);
-
   const applyArticlesOnClick = (e) => {
     if (listIconRef.current) {
       setSelectedCount(e.target.textContent.slice(0, 2));
@@ -24,7 +28,11 @@ export default function PostsPagination() {
     <div className="app_pagination flex justify-center items-center flex-col md:flex-row mt-[16.5rem]">
       <div className="app_pagination-stack border-[1px] rounded-full py-[15px] mr-[18px] text-[10px] order-2 md:order-1">
         <Stack spacing={2}>
-          <Pagination count={selectedCount} />
+          <Pagination
+            count={Math.ceil(websites.length / 5)}
+            // count={selectedCount}
+            onChange={(e) => setPageNum(+e.target.textContent)}
+          />
         </Stack>
       </div>
 
@@ -35,8 +43,8 @@ export default function PostsPagination() {
           ref={listIconRef}
         >
           <span>{arrowDownIcon}</span>
-          <span className="mx-2">{selectedCount}</span>
-          <span>Articles</span>
+          <span className="mx-2">{+selectedCount}</span>
+          <span>{pages}</span>
         </div>
         <ul
           className={`absolute -left-2 w-full text-[12px] md:text-[20px] border-2 rounded-[7px] mt-2 px-8 ${
@@ -50,7 +58,7 @@ export default function PostsPagination() {
                 onClick={(e) => applyArticlesOnClick(e)}
                 key={i}
               >
-                {count} Articles
+                {count} {pages}
               </li>
             );
           })}

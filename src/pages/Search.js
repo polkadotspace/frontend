@@ -64,7 +64,7 @@ const Search = ({ value, setValue, handleValue }) => {
         <PostComponent filterText={filterText} />
       </div>
       <div>
-        <PostsPagination />
+        <PostsPagination pages="Articles" />
       </div>
     </div>
   );

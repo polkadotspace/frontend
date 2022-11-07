@@ -17,18 +17,67 @@ const Websites = () => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [urlValue, setURLValue] = useState("");
+  const [page, setPage] = useState(1);
   const [websites, setWebsites] = useState([
-    { id: 1, icon: googleIcon, name: "Google", url: "https://www.google.com" },
+    { icon: googleIcon, name: "Google", url: "https://www.google.com" },
     {
-      id: 2,
       icon: twitterIcon,
       name: "Twitter",
       url: "https://www.twitter.com",
     },
     {
-      id: 2,
       icon: twitterIcon,
       name: "Twitter",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "facebook",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "insta",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "linkedin",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "youtube",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "stackoverflow",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "reddit",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "nvidia",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "intel",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "amd",
+      url: "https://www.twitter.com",
+    },
+    {
+      icon: twitterIcon,
+      name: "asus",
       url: "https://www.twitter.com",
     },
   ]);
@@ -41,7 +90,7 @@ const Websites = () => {
     setNameValue("");
     setURLValue("");
   };
-
+  console.log(websites.length);
   return (
     <div className="admin_websites">
       <h1 className="text-[70px] font-[700] text-center mb-[43px]">Websites</h1>
@@ -49,12 +98,16 @@ const Websites = () => {
         <div className="w-[332px]">
           <AdminPanel />
         </div>
-        <div className="admin_users-wrapper h-[1050px] w-[974px] p-6 rounded-[50px] grid grid-rows-6">
-          <div className="row-span-4 pl-[50px] pr-[110px]">
-            {websites.map((box, i) => {
+        <div className="admin_users-wrapper h-[1050px] w-[974px] p-6 rounded-[50px] grid grid-rows-6 pt-[50px]">
+          <div
+            className={`row-span-4 pl-[50px] pr-[110px] ${
+              websites.length > 5 ? "overflow-hidden" : ""
+            }`}
+          >
+            {websites.slice(page * page - 1, page * 5).map((box, i) => {
               return (
                 <div
-                  className="admin_users-wrapper_box admin_websites-box flex justify-center mt-[80px]"
+                  className={`admin_users-wrapper_box admin_websites-box flex justify-center mt-[80px]`}
                   key={i}
                 >
                   <ul className="w-1/6 bordered_icons">
@@ -114,7 +167,12 @@ const Websites = () => {
           </div>
           {websites.length > 10 ? (
             <div className="rows-span-1 -mt-[12.5rem]">
-              <PostsPagination />
+              <PostsPagination
+                pages="pages"
+                websites={websites}
+                pageNum={page}
+                setPageNum={setPage}
+              />
             </div>
           ) : (
             ""
