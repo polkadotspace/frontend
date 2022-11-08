@@ -4,7 +4,7 @@ import person from "../assets/images/person.jpg";
 
 const RPC = () => {
   return (
-    <div className="app_rpc">
+    <div className="app_rpc bg-white">
       <h1 className="text-[70px] font-[700] text-center">RPC</h1>
       <div className="app_rpc-wrapper rounded-[20px] p-20">
         {[
