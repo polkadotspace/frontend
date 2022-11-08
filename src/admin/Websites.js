@@ -170,7 +170,6 @@ const Websites = () => {
               <PostsPagination
                 pages="pages"
                 websites={websites}
-                pageNum={page}
                 setPageNum={setPage}
               />
             </div>

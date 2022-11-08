@@ -7,12 +7,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 
-export default function PostsPagination({
-  pages,
-  websites,
-  pageNum,
-  setPageNum,
-}) {
+export default function PostsPagination({ pages, websites, setPageNum }) {
   const articlesCount = [5, 10, 15];
   const [openList, setOpenList] = React.useState(false);
   const [selectedCount, setSelectedCount] = React.useState(articlesCount[0]);
@@ -29,8 +24,7 @@ export default function PostsPagination({
       <div className="app_pagination-stack border-[1px] rounded-full py-[15px] mr-[18px] text-[10px] order-2 md:order-1">
         <Stack spacing={2}>
           <Pagination
-            count={Math.ceil(websites.length / 5)}
-            // count={selectedCount}
+            count={websites ? Math.ceil(websites.length / 5) : null}
             onChange={(e) => setPageNum(+e.target.textContent)}
           />
         </Stack>
