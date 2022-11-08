@@ -39,7 +39,7 @@ const Navbar = ({ isLogged }) => {
     <div className="app_navbar py-8 flex justify-between items-center">
       <div className="app_navbar-logo w-5/12 sm:w-5/12 lg:w-6/12 text-[15px] md:text-[1.88rem]">
         <Link to="/" className="app_logo">
-          <img src={logo} alt="Logo" className="w-1/3" />
+          <img src={logo} alt="Logo" className="w-2/3 md:w-1/3" />
         </Link>
       </div>
       <div className="app_navbar-items flex justify-between items-center w-5/12 sm:w-5/12 lg:w-4/12 xl:w-3/12">
