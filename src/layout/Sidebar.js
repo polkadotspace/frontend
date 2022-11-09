@@ -11,7 +11,7 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
   const [urlValue, setURLValue] = useState("");
 
   // Sidebar Links State
-  const links = ["Home", "Favourites", "RPC", "Contact"];
+  const links = ["Home", "Favourites", "Blog", "Contact"];
   const sideBarRef = useRef(null);
 
   // Create Reusable Function For Closing Navabrs Floaitng Containers
@@ -29,7 +29,11 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
   const renderLinks = () => {
     return links.map((link, i) => {
       return (
-        <li className="sidebar_list-item" key={i}>
+        <li
+          className="sidebar_list-item"
+          key={i}
+          onClick={() => setOpenNavbar(false)}
+        >
           {link === "Home" ? (
             <Link
               to="/"
@@ -71,12 +75,20 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
           </button>
         </li>
         <li className="mb-6">
-          <Link to="/pages/login" className="btn block">
+          <Link
+            to="/pages/login"
+            className="btn block"
+            onClick={() => setOpenNavbar(false)}
+          >
             Login
           </Link>
         </li>
         <li>
-          <Link to="/pages/register" className="btn block">
+          <Link
+            to="/pages/register"
+            className="btn block"
+            onClick={() => setOpenNavbar(false)}
+          >
             Register
           </Link>
         </li>

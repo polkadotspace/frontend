@@ -419,6 +419,10 @@
   }
 }
 
+.app_blog .blog_like.clicked {
+  color: #e6007a;
+}
+
 .admin_users-panel {
   background-color: #fff;
   box-shadow: 0px 0px 15px #e6007a;

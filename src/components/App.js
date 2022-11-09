@@ -17,6 +17,8 @@ import Profile from "../pages/Profile";
 import AccountChange from "../pages/AccountChange";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
+import Blog from "../pages/Blog";
+import BlogArticle from "../pages/BlogArticle";
 
 // Admin Pages
 import Users from "../admin/Users";
@@ -24,7 +26,6 @@ import Websites from "../admin/Websites";
 
 import "../assets/style/app.css";
 import Favourites from "../pages/Favourites";
-import RPC from "../pages/RPC";
 
 const App = () => {
   return (
@@ -44,7 +45,8 @@ const App = () => {
           <Route path="/pages/profile" element={<Profile />} />
           <Route path="/pages/accountchange" element={<AccountChange />} />
           <Route path="/pages/favourites" element={<Favourites />} />
-          <Route path="/pages/rpc" element={<RPC />} />
+          <Route path="/pages/blog" element={<Blog />} />
+          <Route path="/pages/blogarticle" element={<BlogArticle />} />
           <Route path="/pages/contact" element={<Contact />} />
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/websites" element={<Websites />} />
@@ -65,4 +67,6 @@ export default App;
  * Admin Webistes : plus button + pop up (same login page) + edit icon (same login page) + pagination ✅
  * Requests (sidebar): name of websites + link + submit ✅
  * Fake Authentication ✅
+ * Profile Icon Hidden ✅
+ * Search Reasults Link ✅
  */

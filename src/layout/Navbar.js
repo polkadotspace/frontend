@@ -74,7 +74,7 @@ const Navbar = ({ isLogged }) => {
         </div>
 
         {window.sessionStorage.getItem("isLogged") ? (
-          <div className="app_navbar-items_favourites cursor-pointer text-[42px] text-center ml-6 md:ml-0">
+          <div className="app_navbar-items_favourites cursor-pointer text-[25px] md:text-[42px] text-center ml-6 md:ml-0">
             <Link to="/pages/favourites">
               {heartIcon} <span>2</span>
             </Link>
@@ -90,11 +90,16 @@ const Navbar = ({ isLogged }) => {
           </div>
         )}
 
-        <div className="app_navbar-items_profile cursor-pointer">
-          <Link to="/pages/profile" className="text-[25px] md:text-[40px]">
-            {userIcon}
-          </Link>
-        </div>
+        {window.sessionStorage.getItem("isLogged") ? (
+          <div className="app_navbar-items_profile cursor-pointer">
+            <Link to="/pages/profile" className="text-[25px] md:text-[40px]">
+              {userIcon}
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div
           className="app_navbar-items_bars cursor-pointer text-right"
           onClick={() => setOpenNavbar(!openNavbar)}
