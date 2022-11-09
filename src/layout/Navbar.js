@@ -74,8 +74,8 @@ const Navbar = ({ isLogged }) => {
         </div>
 
         {window.sessionStorage.getItem("isLogged") ? (
-          <div className="app_navbar-items_favourites cursor-pointer text-[25px] md:text-[42px] text-center ml-6 md:ml-0">
-            <Link to="/pages/favourites">
+          <div className="app_navbar-items_favourites mr-2 cursor-pointer text-[25px] md:text-[42px] text-center">
+            <Link to="/pages/favourites" className="text-center">
               {heartIcon} <span>2</span>
             </Link>
           </div>
