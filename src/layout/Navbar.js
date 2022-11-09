@@ -18,7 +18,7 @@ const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 const barsIcon = <FontAwesomeIcon icon={faBars} />;
 const heartIcon = <FontAwesomeIcon icon={faHeart} />;
 
-const Navbar = ({ isLogged }) => {
+const Navbar = () => {
   const languageList = ["en", "fr"];
   const [openLanguages, setOpenLanguages] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(languageList[0]);

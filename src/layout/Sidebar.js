@@ -56,7 +56,7 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
 
   return (
     <div
-      className={`app_sidebar transition-all duration-500 pt-20 px-6 h-screen fixed right-full top-0 translate-x-0 z-[700] ${
+      className={`app_sidebar transition-all duration-500 pt-20 px-6 h-screen fixed right-full top-0 z-[700] ${
         openNavbar ? "translate-x-full" : "translate-x-0"
       }`}
       ref={sideBarRef}
