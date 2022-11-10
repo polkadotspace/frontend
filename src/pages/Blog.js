@@ -2,6 +2,7 @@ import React from "react";
 
 import BlogSidebar from "../components/BlogSidebar";
 import BlogPost from "../components/BlogPost";
+import PostsPagination from "../components/PostsPagination";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -57,6 +58,9 @@ const Blog = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <PostsPagination pages="Articles" />
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ export default function PostsPagination({ pages, websites, setPageNum }) {
       <div className="app_pagination-stack border-[1px] rounded-full py-[15px] mr-[18px] text-[10px] order-2 md:order-1">
         <Stack spacing={2}>
           <Pagination
-            count={websites ? Math.ceil(websites.length / 5) : null}
+            count={websites ? Math.ceil(websites.length / 5) : selectedCount}
             onChange={(e) => setPageNum(+e.target.textContent)}
           />
         </Stack>
