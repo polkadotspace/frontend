@@ -3,6 +3,11 @@ import React from "react";
 import BlogSidebar from "../components/BlogSidebar";
 import BlogPost from "../components/BlogPost";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+
+const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
+
 const Blog = () => {
   return (
     <div className="app_blog">
@@ -22,7 +27,12 @@ const Blog = () => {
             document.querySelector(".app_blog").offsetHeight
           }px] hidden lg:block`}
         >
-          <h2 className="text-[16px] font-[600] mb-10">
+          <div className="mb-4">
+            <a href="/pages/addarticle" className="text-blue-400">
+              Add new article <span>{editIcon}</span>
+            </a>
+          </div>
+          <h2 className="text-[16px] font-[600] mb-4">
             More From Polkadotspace
           </h2>
           <BlogSidebar />

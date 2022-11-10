@@ -54,11 +54,9 @@ const BlogPost = () => {
             </a>
           </div>
           <div className="app_blog-box_description text-[12px] md:text-[16px]">
-            <a href="/">
-              Reproducible ways to create high-yield income streams with data
-              science — Hey guys, I know many of you have thought about ways to
-              reinvent...
-            </a>
+            Reproducible ways to create high-yield income streams with data
+            science — Hey guys, I know many of you have thought about ways to
+            reinvent...
           </div>
           <div className="app_blog-box_tags mt-[25px] lg:mt-[58px] flex">
             <span className="py-[4px] md:py-[9px] px-[8px] md:px-[30px] text-[10px] md:text-[15px] cursor-pointer bg-[#D9D9D9] rounded-[34px]">

@@ -19,6 +19,7 @@ import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import Blog from "../pages/Blog";
 import BlogArticle from "../pages/BlogArticle";
+import AddArticle from "../pages/AddArticle";
 
 // Admin Pages
 import Users from "../admin/Users";
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/pages/favourites" element={<Favourites />} />
           <Route path="/pages/blog" element={<Blog />} />
           <Route path="/pages/blogarticle" element={<BlogArticle />} />
+          <Route path="/pages/addarticle" element={<AddArticle />} />
           <Route path="/pages/contact" element={<Contact />} />
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/websites" element={<Websites />} />

@@ -4,7 +4,8 @@ import BlogSidebar from "../components/BlogSidebar";
 import Comments from "../components/Comments";
 
 import person from "../assets/images/person.jpg";
-import blogImg from "../assets/images/blog/blog.jpg";
+import blogImgOne from "../assets/images/blog/blog.jpg";
+import blogImgTwo from "../assets/images/blog/blog2.jpg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,10 +13,14 @@ import {
   faTwitter,
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
-import { faShare, faHandsClapping } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faShare,
+  faHandsClapping,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 
+const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
 const facebookIcon = <FontAwesomeIcon icon={faFacebookF} />;
 const twitterIcon = <FontAwesomeIcon icon={faTwitter} />;
 const discordIcon = <FontAwesomeIcon icon={faDiscord} />;
@@ -38,7 +43,7 @@ const BlogArticle = () => {
       <div className="flex">
         <div className="app_blog-context w-full lg:w-4/6 pr-6">
           <div className="app_blogarticle-author flex items-center flex-wrap">
-            <div className="app_blogarticle-author_img w-6/6 md:w-3/6 flex items-center justify-between">
+            <div className="app_blogarticle-author_img w-6/6 md:w-3/6 flex items-center">
               <img src={person} alt="Author" className="w-16 rounded-full" />
               <div className="app_blogarticle-author_info ml-4">
                 <h2 className="text-[17px]">John Doe</h2>
@@ -79,12 +84,21 @@ const BlogArticle = () => {
               </h3>
             </header>
             <section className="app_blogarticle-article_image">
-              <img src={blogImg} alt="Article" className="w-[80%]" />
+              <img src={blogImgOne} alt="Article" className="w-[80%]" />
             </section>
             <section className="app_blogarticle-article_content mt-6">
               {[
-                `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
-                `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+                `I am one of the participants of SistersLab Women in Tech Academy project supported by the Community Volunteers Foundation (https://www.tog.org.tr/en/). The project aims to empower people between the age of 20–28 who identify as woman, through 3 months long software training and supporting trainings to increase their participation in the workforce in the IT sector. You can access detailed information about the project using this link: https://sisterslab.co/women-in-tech-academy/`,
+                `In this artical, i’ll talk about file operations in Python. Our main topics will be;`,
+                ` Opening a File`,
+                `os Module`,
+                `Reading a File`,
+                `File Reading Methods`,
+                `Writing a File`,
+                `File Writing Methods`,
+                `Searching a File`,
+                `Renaming a File`,
+                ` Deletion a File`,
                 `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
               ].map((text, i) => {
                 return (
@@ -93,6 +107,39 @@ const BlogArticle = () => {
                   </p>
                 );
               })}
+            </section>
+            <section className="app_blogarticle-article_image">
+              <img src={blogImgTwo} alt="Article" className="w-[80%]" />
+            </section>
+            <section className="app_blogarticle-article_content mt-6">
+              {[
+                `I am one of the participants of SistersLab Women in Tech Academy project supported by the Community Volunteers Foundation (https://www.tog.org.tr/en/). The project aims to empower people between the age of 20–28 who identify as woman, through 3 months long software training and supporting trainings to increase their participation in the workforce in the IT sector. You can access detailed information about the project using this link: https://sisterslab.co/women-in-tech-academy/`,
+                `In this artical, i’ll talk about file operations in Python. Our main topics will be;`,
+                ` Opening a File`,
+                `os Module`,
+                `Reading a File`,
+                `File Reading Methods`,
+                `Writing a File`,
+                `File Writing Methods`,
+                `Searching a File`,
+                `Renaming a File`,
+                ` Deletion a File`,
+                `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+              ].map((text, i) => {
+                return (
+                  <p key={i} className="text-[20px] mt-6">
+                    {text}
+                  </p>
+                );
+              })}
+            </section>
+            <section className="italic text-[20px] mt-10">
+              <blockquote>
+                “I'm selfish, impatient and a little insecure. I make mistakes,
+                I am out of control and at times hard to handle. But if you
+                can't handle me at my worst, then you sure as hell don't deserve
+                me at my best.”
+              </blockquote>
             </section>
             <div className="app_blogarticle-article_rating mt-10 flex text-[20px] text-gray-600">
               <div className="cursor-pointer">
@@ -120,6 +167,11 @@ const BlogArticle = () => {
             document.querySelector(".app_blogarticle").offsetHeight
           }px] hidden lg:block`}
         >
+          <div className="mb-4">
+            <a href="/pages/addarticle" className="text-blue-400">
+              Add new article <span>{editIcon}</span>
+            </a>
+          </div>
           <h2 className="text-[16px] font-[600] mb-10">
             More From Polkadotspace
           </h2>
