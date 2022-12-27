@@ -1,15 +1,75 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import BlogSidebar from "../components/BlogSidebar";
 import BlogPost from "../components/BlogPost";
 import PostsPagination from "../components/PostsPagination";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { GET_ALL_BLOG_URL, GET_ALL_ARTICLE_URL } from "../commons/constant";
 
 const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(5);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const [articles, setArticles] = useState([])
+
+  const getAllBlogs = async (page, size) => {
+    fetch(`${GET_ALL_BLOG_URL}?page=${page}&size=${size}`, {
+      method: 'GET',
+      headers: {
+        // "Accept": "application/json text/plain",
+        "Content-Type": "application/json"
+      },
+    })
+      .then((res) => {
+        console.log(`ticket res: `, res);
+        return res.json()
+      })
+      .then(data => {
+        console.log(`ticket data: `, data);
+        setBlogs(data?.blogs)
+        setTotalCount(data?.total_elements ? data.total_elements : 0)
+      })
+      .catch((err) => {
+        console.log(`ticket err: `, err);
+      })
+  }
+
+  const getAllAritcles = async () => {
+    fetch(`${GET_ALL_ARTICLE_URL}`, {
+      method: 'GET',
+      headers: {
+        // "Accept": "application/json text/plain",
+        "Content-Type": "application/json"
+      },
+    })
+      .then((res) => {
+        console.log(`ticket res: `, res);
+        return res.json()
+      })
+      .then(data => {
+        console.log(`ticket data: `, data);
+        setArticles(data?.articles)
+      })
+      .catch((err) => {
+        console.log(`ticket err: `, err);
+      })
+  }
+
+  useEffect(() => {
+    getAllBlogs(page, size);
+  }, [page, size]);
+
+  useEffect(() => {
+    getAllAritcles();
+  }, []);
+
+  console.log(`blogs: `, blogs);
+
   return (
     <div className="app_blog">
       <h1 className="w-6/6 mb-16 text-center text-[26px] md:text-[70px] font-[800]">
@@ -17,16 +77,19 @@ const Blog = () => {
       </h1>
       <div className="flex">
         <div className="w-6/6 lg:w-4/6 lg:pr-20">
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
+          {
+            blogs?.map((blog, index) => (
+              <div key={index}>
+                <BlogPost blog={blog} />
+              </div>
+            ))
+          }
+          {/* <BlogPost /> */}
         </div>
         <div
-          className={`w-2/6 border-l-2 pl-8 h-[${
-            document.querySelector(".app_blog") &&
+          className={`w-2/6 border-l-2 pl-8 h-[${document.querySelector(".app_blog") &&
             document.querySelector(".app_blog").offsetHeight
-          }px] hidden lg:block`}
+            }px] hidden lg:block`}
         >
           <div className="mb-4">
             <a href="/pages/addarticle" className="text-blue-400">
@@ -36,11 +99,17 @@ const Blog = () => {
           <h2 className="text-[16px] font-[600] mb-4">
             More From Polkadotspace
           </h2>
+          {
+            articles?.map((article, index)=>(
+              <div key={index}>
+                <BlogSidebar article={article} />
+              </div>
+            ))
+          }
+          {/* <BlogSidebar />
           <BlogSidebar />
           <BlogSidebar />
-          <BlogSidebar />
-          <BlogSidebar />
-          <BlogSidebar />
+          <BlogSidebar /> */}
 
           <div className="app_blogsidebar-topics mt-[25px] lg:mt-[58px]">
             <h3 className="text-[15px]">Recommended topics</h3>
@@ -60,7 +129,10 @@ const Blog = () => {
         </div>
       </div>
       <div>
-        <PostsPagination pages="Articles" />
+        {
+          blogs.length > 0 &&
+          <PostsPagination type="Blogs" totalCount={totalCount} setPage={setPage} setSize={setSize} />
+        }
       </div>
     </div>
   );

@@ -7,14 +7,17 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const arrowDownIcon = <FontAwesomeIcon icon={faCaretDown} />;
 
-export default function PostsPagination({ pages, websites, setPageNum }) {
+export default function PostsPagination({ type, totalCount, setPage, setSize }) {
   const articlesCount = [5, 10, 15];
   const [openList, setOpenList] = React.useState(false);
   const [selectedCount, setSelectedCount] = React.useState(articlesCount[0]);
   const listIconRef = React.useRef(null);
+
   const applyArticlesOnClick = (e) => {
     if (listIconRef.current) {
-      setSelectedCount(e.target.textContent.slice(0, 2));
+      console.log(`apply article: `, e.target.textContent);
+      setSelectedCount(parseInt(e.target.textContent.slice(0, 2)));
+      setSize(parseInt(e.target.textContent.slice(0, 2)));
       setOpenList(false);
     }
   };
@@ -24,8 +27,8 @@ export default function PostsPagination({ pages, websites, setPageNum }) {
       <div className="app_pagination-stack border-[1px] rounded-full py-[15px] mr-[18px] text-[10px] order-2 md:order-1">
         <Stack spacing={2}>
           <Pagination
-            count={websites ? Math.ceil(websites.length / 5) : selectedCount}
-            onChange={(e) => setPageNum(+e.target.textContent)}
+            count={totalCount ? Math.ceil(totalCount / selectedCount) : selectedCount}
+            onChange={(e) => setPage(e.target.textContent)}
           />
         </Stack>
       </div>
@@ -38,7 +41,7 @@ export default function PostsPagination({ pages, websites, setPageNum }) {
         >
           <span>{arrowDownIcon}</span>
           <span className="mx-2">{+selectedCount}</span>
-          <span>{pages}</span>
+          <span>{type}</span>
         </div>
         <ul
           className={`absolute -left-2 w-full text-[12px] md:text-[20px] border-2 rounded-[7px] mt-2 px-8 ${
@@ -52,7 +55,7 @@ export default function PostsPagination({ pages, websites, setPageNum }) {
                 onClick={(e) => applyArticlesOnClick(e)}
                 key={i}
               >
-                {count} {pages}
+                {count} {type}
               </li>
             );
           })}

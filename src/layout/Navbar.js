@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
-
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import logo from "../assets/images/logo.png";
 import Sidebar from "./Sidebar";
+import { isLoggedIn, logout } from '../auth';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -34,6 +33,11 @@ const Navbar = () => {
   // Set Sidebar State
   const [openNavbar, setOpenNavbar] = useState(false);
   const barsRefIcon = useRef(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    setLoggedIn(isLoggedIn());
+  }, [loggedIn])
 
   return (
     <div className="app_navbar py-8 flex justify-between items-center">
@@ -73,25 +77,37 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {window.sessionStorage.getItem("isLogged") ? (
-          <div className="app_navbar-items_favourites mr-2 cursor-pointer text-[25px] md:text-[42px] text-center">
-            <Link to="/pages/favourites" className="text-center">
+        {isLoggedIn() ? (
+          <div className="app_navbar-items_favourites mr-2 cursor-pointer text-[25px] md:text-[42px] text-center flex items-center justify-end">
+              <button 
+              className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px] bg-red-400 text-white mx-1"
+              onClick={()=>{
+                console.log(`logout btn clicked`)
+                logout()
+                // window.location.pathname = "/"
+                // window.location.reload()
+              } }
+              >
+                logout
+              </button>
+            <Link to="/pages/favourites" className="text-center mx-1">
               {heartIcon} <span>2</span>
             </Link>
           </div>
         ) : (
           <div className="app_navbar-items_login flex justify-center">
-            <Link
+              <Link
               to="/pages/login"
               className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px]"
             >
               login
             </Link>
+
           </div>
         )}
 
-        {window.sessionStorage.getItem("isLogged") ? (
-          <div className="app_navbar-items_profile cursor-pointer">
+        {isLoggedIn() ? (
+          <div className="app_navbar-items_profile cursor-pointer mx-1">
             <Link to="/pages/profile" className="text-[25px] md:text-[40px]">
               {userIcon}
             </Link>
@@ -101,7 +117,7 @@ const Navbar = () => {
         )}
 
         <div
-          className="app_navbar-items_bars cursor-pointer text-right"
+          className="app_navbar-items_bars cursor-pointer text-right mx-1"
           onClick={() => setOpenNavbar(!openNavbar)}
           ref={barsRefIcon}
         >

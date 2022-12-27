@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { GET_ALL_ARTICLE_URL } from "../commons/constant";
 
-import PostComponent from "../components/PostComponent";
+import FavouritePost from "../components/FavouritePost";
 import PostsPagination from "../components/PostsPagination";
 
 const Favourites = () => {
@@ -26,9 +27,8 @@ const Favourites = () => {
       return (
         <React.Fragment key={i}>
           <li
-            className={`cursor-pointer md:px-10 ${
-              filterText === "All" ? "active" : ""
-            }`}
+            className={`cursor-pointer md:px-10 ${filterText === "All" ? "active" : ""
+              }`}
             onClick={(e) => addActiveClass(e)}
           >
             {filterText}
@@ -37,6 +37,44 @@ const Favourites = () => {
       );
     });
   };
+
+  const [articles, setAritcles] = useState([]);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(5);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const getAllArticles = (page, size) => {
+    fetch(`${GET_ALL_ARTICLE_URL}?page=${page}&size=${size}`, {
+      method: 'GET',
+      headers: {
+        // "Accept": "application/json text/plain",
+        "Content-Type": "application/json"
+      },
+    })
+      .then((res) => {
+        console.log(`res: `, res);
+        return res.json()
+      })
+      .then(data => {
+        console.log(`data: `, data);
+        setAritcles(data?.articles)
+        setTotalCount(data?.total_elements ? data.total_elements : 0)
+      })
+      .catch((err) => {
+        console.log(`err: `, err);
+      })
+  }
+
+  useEffect(() => {
+    getAllArticles(page, size);
+  }, [page, size]);
+
+  useEffect(() => {
+  }, [articles]);
+
+
+  console.log(`articles: `, articles);
+  console.log("page, size: ", page, size);
 
   return (
     <div className="app_favourites">
@@ -51,10 +89,19 @@ const Favourites = () => {
       </ul>
 
       <div>
-        <PostComponent filterText={filterText} />
+        {
+          articles?.map((article, index) => (
+            <div key={index}>
+              <FavouritePost filterText={filterText} article={article} />
+            </div>
+          ))
+        }
       </div>
       <div>
-        <PostsPagination pages="Articles" />
+        {
+          articles.length > 0 &&
+          <PostsPagination type="Articles" totalCount={totalCount} setPage={setPage} setSize={setSize} />
+        }
       </div>
     </div>
   );
