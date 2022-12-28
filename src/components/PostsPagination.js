@@ -22,6 +22,8 @@ export default function PostsPagination({ type, totalCount, setPage, setSize }) 
     }
   };
 
+  console.log("total count in pagination: ", totalCount);
+
   return (
     <div className="app_pagination flex justify-center items-center flex-col md:flex-row mt-[16.5rem]">
       <div className="app_pagination-stack border-[1px] rounded-full py-[15px] mr-[18px] text-[10px] order-2 md:order-1">

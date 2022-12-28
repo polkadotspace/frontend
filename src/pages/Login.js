@@ -32,13 +32,16 @@ const Login = () => {
     })
       .then((res) => {
         console.log(`login res: `, res);
+        if(res.status !== 200){
+          toast.warn("Invalid credentials given.");
+        }
         return res.json()
       })
       .then(data => {
-        setToken(data?.access)
-        setUserData(data)
         console.log(`login data: `, data)
         if (data?.access) {
+          setToken(data?.access)
+          setUserData(data)
           toast.success("Successfully logged in");
           navigate("/");
           window.location.reload()

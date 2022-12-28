@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Requests from "../components/Requests";
-import { getToken, isLoggedIn, logout } from '../auth';
+import { getToken, isLoggedIn, logout, getUserData } from '../auth';
 // import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CREATE_WEBSITE_REQUEST_URL } from '../commons/constant';
@@ -11,9 +11,11 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
   const [openRequest, setOpenRequest] = useState(false);
   const [nameValue, setNameValue] = useState("");
   const [urlValue, setURLValue] = useState("");
+  const [user, setUser] = useState({})
 
   // Sidebar Links State
   const links = ["Home", "Favourites", "Blog", "Contact"];
+  const adminLinks = ["Users", "Website Requests"];
   const sideBarRef = useRef(null);
   // const navigate = useNavigate();
 
@@ -57,11 +59,33 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
     });
   };
 
+  const renderAdminLinks = () => {
+    return (
+      <li
+        className="sidebar_list-item"
+        onClick={() => setOpenNavbar(false)}
+      >
+        <Link
+          to="/admin/users"
+          className="p-2 flex justify-center cursor-pointer text-lg"
+        >
+          Users
+        </Link>
+        <Link
+          to="/admin/websites"
+          className="p-2 flex justify-center cursor-pointer text-lg"
+        >
+          Website Requests
+        </Link>
+      </li>
+    );
+  };
+
   const submitWebsiteRequest = async (e) => {
     e.preventDefault();
     console.log(`website req button clicked!`);
 
-    const data = { name: nameValue, url:urlValue };
+    const data = { name: nameValue, url: urlValue };
     console.log(`body: `, data);
 
     fetch(`${CREATE_WEBSITE_REQUEST_URL}`, {
@@ -75,36 +99,44 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
     })
       .then((res) => {
         console.log(`website req res: `, res);
-        if(res.status === 201){
+        if (res.status === 201) {
           toast.success("Successfully website request created");
           return res.json()
         }
-        else if(res.status === 401){  
+        else if (res.status === 401) {
           toast.warn("Unauthorized request sent. Please login first");
         }
         return res
       })
       .then(data => {
         console.log(`website req data: `, data)
-          setOpenRequest(false);
+        setOpenRequest(false);
       })
       .catch((err) => {
         console.log(`ticket err: `, err);
         toast.error("Failed to create website request. Something went wrong!")
       })
-  }
+  };
+
+  useEffect(() => {
+    setUser(getUserData());
+  }, []);
+
+  console.log("userdata: ", user);
 
   return (
     <div
-      className={`app_sidebar transition-all duration-500 pt-20 px-6 h-screen fixed right-full top-0 z-[700] ${
-        openNavbar ? "translate-x-full" : "translate-x-0"
-      }`}
+      className={`app_sidebar transition-all duration-500 pt-20 px-6 h-screen fixed right-full top-0 z-[700] ${openNavbar ? "translate-x-full" : "translate-x-0"
+        }`}
       ref={sideBarRef}
     >
       <div className="app_sidebar-logo text-2xl">
         <Link to="/">Polkadot Space</Link>
       </div>
       <ul className="sidebar_list w-52 mt-20">{renderLinks()}</ul>
+      {
+        user?.is_superuser && <ul className="sidebar_list w-52 mt-20">{renderAdminLinks()}</ul>
+      }
       <ul className="app_sidebar-auth mt-16 text-[20px] text-center">
         <li className="mb-6">
           <button
@@ -115,45 +147,44 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
           </button>
         </li>
         {
-          isLoggedIn() ? 
-          <button 
-          className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px] bg-red-400 text-white mx-1"
-          onClick={()=>{
-            console.log(`logout btn clicked`)
-            logout()
-            // window.location.pathname = "/"
-            // window.location.reload()
-          } }
-          >
-            logout
-          </button>
-          :
-          <div>
-            <li className="mb-6">
-          <Link
-            to="/pages/login"
-            className="btn block"
-            onClick={() => setOpenNavbar(false)}
-          >
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/pages/register"
-            className="btn block"
-            onClick={() => setOpenNavbar(false)}
-          >
-            Register
-          </Link>
-        </li>
-          </div>
+          isLoggedIn() ?
+            <button
+              className="border-[1px] rounded-[75px] py-1 px-[15px] md:px-[25px] text-[12px] md:text-[18px] bg-red-400 text-white mx-1"
+              onClick={() => {
+                console.log(`logout btn clicked`)
+                logout()
+                // window.location.pathname = "/"
+                // window.location.reload()
+              }}
+            >
+              logout
+            </button>
+            :
+            <div>
+              <li className="mb-6">
+                <Link
+                  to="/pages/login"
+                  className="btn block"
+                  onClick={() => setOpenNavbar(false)}
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/pages/register"
+                  className="btn block"
+                  onClick={() => setOpenNavbar(false)}
+                >
+                  Register
+                </Link>
+              </li>
+            </div>
         }
       </ul>
       <div
-        className={`absolute top-10 left-[120%] ${
-          openRequest ? "block" : "hidden"
-        }`}
+        className={`absolute top-10 left-[120%] ${openRequest ? "block" : "hidden"
+          }`}
       >
         <Requests
           submitWebsiteRequest={submitWebsiteRequest}

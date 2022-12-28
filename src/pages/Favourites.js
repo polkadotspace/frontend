@@ -73,7 +73,8 @@ const Favourites = () => {
   }, [articles]);
 
 
-  console.log(`articles: `, articles);
+  console.log(`fav articles: `, articles);
+  console.log("fav page total count: ", totalCount);
   console.log("page, size: ", page, size);
 
   return (

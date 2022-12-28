@@ -32,7 +32,7 @@ const facebookIcon = <FontAwesomeIcon icon={faFacebookF} />;
 const twitterIcon = <FontAwesomeIcon icon={faTwitter} />;
 
 const FavouritePost = ({ filterText, article }) => {
-  const [articleObj, setAritcleObj] = useState(article); 
+  const [articleObj, setAritcleObj] = useState(article);
   const [showLikes, setShowLikes] = useState(false);
   const [clap, setClap] = useState({});
   const [clapClicked, setClapClicked] = useState(false);
@@ -180,7 +180,13 @@ const FavouritePost = ({ filterText, article }) => {
               }`}
           >
             {filterText === "All" ? (
-              <div className="mr-1 text-[13px] md:text-[30px]">{userIcon}</div>
+              <div className="mr-1 text-[13px] md:text-[30px]">
+                <img
+                  src={articleObj?.user?.profile?.profile_image ? `${BASE_URL}${articleObj?.user?.profile?.profile_image}` : userIcon}
+                  alt="Person"
+                  className="w-6 md:w-10 rounded-full"
+                />
+              </div>
             ) : (
               ""
             )}
@@ -210,9 +216,9 @@ const FavouritePost = ({ filterText, article }) => {
               createOrUpdateClap(articleObj?.id)
               setClapClicked(!clapClicked)
             }}>
-              <a 
-              href={window.location.href}
-              ref={clapRef}
+              <a
+                href={window.location.href}
+                ref={clapRef}
               ><FontAwesomeIcon icon={faHandsClapping} style={{ color: `${clap?.active ? "purple" : ""}` }} /></a>
             </li>
             <li onClick={(e) => {
@@ -221,10 +227,10 @@ const FavouritePost = ({ filterText, article }) => {
               setLangClicked(!langClicked)
             }
             }>
-              <a 
-              href={window.location.href}
-              ref={langRef}
-              ><FontAwesomeIcon icon={faLanguage} style={{color: `${langClicked ? "indigo" : ""}`}} /></a>
+              <a
+                href={window.location.href}
+                ref={langRef}
+              ><FontAwesomeIcon icon={faLanguage} style={{ color: `${langClicked ? "indigo" : ""}` }} /></a>
             </li>
             <li onClick={(e) => clickIconFav(e)}>
               <a
@@ -261,10 +267,10 @@ const FavouritePost = ({ filterText, article }) => {
                 </p>
               </li>
             ) : (
-                <p className="text-[5px] text-left md:text-[15px] absolute top-full w-52">
-                  {clap?.clap_count ? clap.clap_count : 0} clap(s)
-                </p>
-              
+              <p className="text-[5px] text-left md:text-[15px] absolute top-full w-52">
+                {clap?.clap_count ? clap.clap_count : 0} clap(s)
+              </p>
+
             )}
             {window.location.href.includes("favourites") ? (
               <Likes likesRef={likesRef} showLikes={showLikes} />
