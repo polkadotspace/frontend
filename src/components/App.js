@@ -28,6 +28,8 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { isLoggedIn } from "../auth";
 
+import PrivateOutlet from "../auth/PrivateRoute";
+
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
@@ -65,9 +67,12 @@ const App = () => {
           <Route path="/pages/blogarticle/:id" element={<BlogArticle />} />
           <Route path="/pages/addarticle" element={<AddArticle />} />
           <Route path="/pages/contact" element={<Contact />} />
-          <Route path="/admin/users" element={<Users />} />
-          <Route path="/admin/websites" element={<Websites />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/admin" element={<PrivateOutlet />}>
+            <Route path="/admin" element={<NotFound />} />
+            <Route path="/admin/users" element={<Users />} />
+            <Route path="/admin/websites" element={<Websites />} />
+          </Route>
         </Routes>
         <div className="">
           <Footer />

@@ -5,14 +5,14 @@ import { getUserData, getToken, setUserData } from "../auth";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { useTab } from "@mui/base";
+// import { useTab } from "@mui/base";
 
 const userIcon = <FontAwesomeIcon icon={faUserCircle} size="2x" />;
 
 const Profile = () => {
   const [verified, setVerified] = useState(false);
 
-  const [profile, setProfile] = useState({ first_name: "", last_name: "", username: "", email: "" })
+  // const [profile, setProfile] = useState({ first_name: "", last_name: "", username: "", email: "" })
 
   const [first_name, setFirstname] = useState("")
   const [last_name, setLastname] = useState("");

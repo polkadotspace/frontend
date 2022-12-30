@@ -15,7 +15,6 @@ const Sidebar = ({ openNavbar, setOpenNavbar, barsRefIcon }) => {
 
   // Sidebar Links State
   const links = ["Home", "Favourites", "Blog", "Contact", 'AccountChange'];
-  const adminLinks = ["Users", "Website Requests"];
   const sideBarRef = useRef(null);
   // const navigate = useNavigate();
 

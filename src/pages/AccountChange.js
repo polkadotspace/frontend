@@ -8,7 +8,7 @@ import person from "../assets/images/person.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 
-const penIcon = <FontAwesomeIcon icon={faPen} />;
+// const penIcon = <FontAwesomeIcon icon={faPen} />;
 
 const AccountChange = () => {
   const [selectedFile, setSelectedFile] = useState();
