@@ -98,7 +98,9 @@ const PostComponent = ({ filterText }) => {
               ""
             )}
             <div className="text-[14px] md:text-[40px]">
-              Bitcoin are going to $25.000
+              <a href="/" target="_blank">
+                Bitcoin are going to $25.000
+              </a>
             </div>
           </h1>
           <h3 className={`app_search_result-link -mt-4 lg:-mt-6`}>

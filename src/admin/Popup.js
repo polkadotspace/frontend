@@ -6,7 +6,7 @@ const Popup = ({
   setURLValue,
   nameValue,
   urlValue,
-  addWebsite,
+  submitWebsiteRequest,
 }) => {
   return (
     <div className="admin_popup rounded-[30px] px-10 py-14 w-full">
@@ -19,9 +19,10 @@ const Popup = ({
         X
       </div>
       <h2 className="text-[40px] font-[700]">Add Website</h2>
-      <form>
+      <form onSubmit={submitWebsiteRequest} >
         <input
           type="text"
+          required
           className="w-full border-2 rounded-[46px] py-4 my-6 indent-6 font-[400] text-[12px] md:text-[20px]"
           placeholder="Website Name"
           name="name"
@@ -32,6 +33,7 @@ const Popup = ({
         />
         <input
           type="url"
+          required
           className="w-full border-2 rounded-[46px] py-4 my-6 indent-6 font-[400] text-[12px] md:text-[20px]"
           placeholder="Website URL"
           name="url"
@@ -39,11 +41,8 @@ const Popup = ({
           onChange={(e) => setURLValue(e.target.value)}
         />
         <button
-          className="main_btn px-[50px] text-[30px]"
-          onClick={(e) => {
-            e.preventDefault();
-            addWebsite();
-          }}
+          type="submit"
+          className="main_btn px-[50px] text-[30px] bg-pink-600 text-white"
         >
           Submit
         </button>

@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col sm:flex-row justify-around text-center w-12/12 lg:w-5/12">
           <ul className="w-12/12 lg:w-6/12-mt-4 sm:mt-0 md:-mt-4 text-[15px] md:text-[24px]">
-            {["About", "Support", "The Seam"].map((link, i) => {
+            {["About", "Support", "The Team"].map((link, i) => {
               return (
                 <li className="mt-4" key={i}>
                   <Link to={`/pages/${link.toLowerCase()}`}>{link}</Link>

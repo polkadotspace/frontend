@@ -1,6 +1,7 @@
 import React from "react";
 
 const Requests = ({
+  submitWebsiteRequest,
   openRequest,
   setOpenRequest,
   setNameValue,
@@ -19,7 +20,7 @@ const Requests = ({
         X
       </div>
       <h2 className="text-[40px] font-[700] text-center">Make a request</h2>
-      <form>
+      <form onSubmit={submitWebsiteRequest} >
         <input
           type="text"
           className="w-full border-2 rounded-[46px] py-4 my-6 indent-6 font-[400] text-[12px] md:text-[20px]"
