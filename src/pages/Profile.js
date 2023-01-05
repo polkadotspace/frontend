@@ -5,14 +5,14 @@ import { getUserData, getToken, setUserData } from "../auth";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { useTab } from "@mui/base";
+// import { useTab } from "@mui/base";
 
 const userIcon = <FontAwesomeIcon icon={faUserCircle} size="2x" />;
 
 const Profile = () => {
   const [verified, setVerified] = useState(false);
 
-  const [profile, setProfile] = useState({ first_name: "", last_name: "", username: "", email: "" })
+  // const [profile, setProfile] = useState({ first_name: "", last_name: "", username: "", email: "" })
 
   const [first_name, setFirstname] = useState("")
   const [last_name, setLastname] = useState("");
@@ -62,7 +62,7 @@ const Profile = () => {
     setLastname(userData?.last_name)
     setEmail(userData?.email)
     setWallet(userData?.profile?.wallet)
-    setProfile({ first_name: userData?.first_name, last_name: userData?.last_name, username: userData?.username, email: userData?.email })
+    // setProfile({ first_name: userData?.first_name, last_name: userData?.last_name, username: userData?.username, email: userData?.email })
   }, [])
 
 
@@ -95,9 +95,8 @@ const Profile = () => {
                 type="password"
                 name="password"
                 className="w-full border-2 rounded-[46px] py-4 indent-6"
-                placeholder="Password"
+                placeholder="****"
                 onChange={(e)=> setPassword(e.target.value)}
-
               />
               <input
                 type="email"
@@ -146,7 +145,7 @@ const Profile = () => {
           >
             Change Wallet
           </label>
-          <button className="main_btn mt-0">Submit</button>
+          <button className="main_btn mt-0 bg-pink-600 text-white" type="submit">Submit</button>
         </form>
       </div>
     </div>

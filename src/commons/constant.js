@@ -19,7 +19,7 @@ export const CREATE_TICKET_URL = `${BASE_URL}/common/api/v1/ticket/create`
 export const GET_ALL_BLOG_URL = `${BASE_URL}/common/api/v1/blog/all`
 export const GET_A_BLOG_URL = `${BASE_URL}/common/api/v1/blog/`
 
-export const GET_ALL_WEBSITE_REQUEST_URL = `${BASE_URL}/common/api/v1/website_request/all`
+export const GET_ALL_WEBSITES_URL = `${BASE_URL}/common/api/v1/websites/all`
 export const CREATE_WEBSITE_REQUEST_URL = `${BASE_URL}/common/api/v1/website_request/create`
 
 export const CREATE_UPDATE_CLAP_URL = `${BASE_URL}/auth/api/v1/clap/create_or_update`
