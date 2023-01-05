@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GET_ALL_WEBSITE_REQUEST_URL, CREATE_WEBSITE_REQUEST_URL } from '../commons/constant';
+import { GET_ALL_WEBSITES_URL, CREATE_WEBSITE_REQUEST_URL } from '../commons/constant';
 import { getToken } from '../auth';
 import AdminPanel from "./AdminPanel";
 import Popup from "./Popup";
@@ -103,7 +103,7 @@ const Websites = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const getAllWebsiteRequest = async (page, size) => {
-    fetch(`${GET_ALL_WEBSITE_REQUEST_URL}?page=${page}&size=${size}`, {
+    fetch(`${GET_ALL_WEBSITES_URL}?page=${page}&size=${size}`, {
       method: 'GET',
       headers: {
         // "Accept": "application/json text/plain",
